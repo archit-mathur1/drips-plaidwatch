@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 
-// ── Drip Capital · PlaidWatch · GBS Supplies Inc ─────────────────────────────────────
+// ── Drip Capital · PlaidWatch · GBS Supplies   March 6 ─────────────────────────────────────
 const MONTHLY = [
   {
     "month": "Apr '25",
     "revenue": 63571,
     "expenses": 59479,
     "net": 4092,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 24191,
+    "lenderNames": [
+      "Ny Comm",
+      "AMEX EPAYMENT ACH PMT W7912",
+      "AMEX EPAYMENT ACH PMT W0590",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   },
   {
@@ -16,12 +21,31 @@ const MONTHLY = [
     "revenue": 575709,
     "expenses": 577854,
     "net": -2145,
-    "lenderPayments": 37338,
+    "lenderPayments": 153746,
     "lenderNames": [
+      "AMEX EPAYMENT ACH PMT 250530 W…",
+      "CHASE CREDIT CRD EPAY 250527",
       "Parafin Capital 2025-05-172505…",
+      "AMEX EPAYMENT ACH PMT 250528 W…",
+      "AMEX EPAYMENT ACH PMT W0728",
+      "DIME BANK TRANSFER 052025 LOAN…",
+      "AMEX EPAYMENT ACH PMT W2734",
+      "AMEX EPAYMENT ACH PMT 250521 W…",
       "Parafin Capital 2025-05-102505…",
+      "AMEX EPAYMENT ACH PMT 250519 W…",
+      "CITI AUTOPAY PAYMENT 250515",
+      "AMEX EPAYMENT ACH PMT 250515 W…",
+      "AMEX EPAYMENT ACH PMT W2342",
       "Parafin Capital 2025-05-032505…",
-      "Parafin Capital 2025-04-262505…"
+      "CHASE CREDIT CRD AUTOPAYBUS250…",
+      "Citizens Bank, N COMM LOANS250…",
+      "Sba Eidl Loan",
+      "CITI CARD ONLINE PAYMENT 25051…",
+      "AMEX EPAYMENT ACH PMT 250508 W…",
+      "CHASE CREDIT CRD EPAY 250505",
+      "AMEX EPAYMENT ACH PMT 250506 W…",
+      "Parafin Capital 2025-04-262505…",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
     ],
     "partial": false
   },
@@ -30,12 +54,23 @@ const MONTHLY = [
     "revenue": 452010,
     "expenses": 334189,
     "net": 117822,
-    "lenderPayments": 30518,
+    "lenderPayments": 114808,
     "lenderNames": [
       "Parafin Capital 2025-06-212507…",
+      "LINE OF CREDIT PAYMENT 250627 …",
+      "Ny Comm",
+      "DISCOVER E-PAYMENT 250625",
+      "AMEX EPAYMENT ACH PMT 250625 W…",
       "Parafin Capital 2025-06-142506…",
+      "DIME BANK TRANSFER 061825 LOAN…",
       "Parafin Capital 2025-06-072506…",
-      "Parafin Capital 2025-05-312506…"
+      "AMEX EPAYMENT ACH PMT 250617 W…",
+      "AMEX EPAYMENT ACH PMT 250617 A…",
+      "CITI AUTOPAY PAYMENT 250613",
+      "Sba Eidl Loan",
+      "Citizens Bank, N COMM LOANS250…",
+      "Parafin Capital 2025-05-312506…",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
     ],
     "partial": false
   },
@@ -44,12 +79,23 @@ const MONTHLY = [
     "revenue": 263866,
     "expenses": 437117,
     "net": -173252,
-    "lenderPayments": 34767,
+    "lenderPayments": 135388,
     "lenderNames": [
+      "LINE OF CREDIT PAYMENT 250730 …",
       "Parafin Capital 2025-07-122508…",
+      "Ny Comm",
       "Parafin Capital 2025-07-192507…",
+      "AMEX EPAYMENT ACH PMT 250729 W…",
       "Parafin Capital 2025-07-122507…",
-      "Parafin Capital 2025-06-282507…"
+      "CITI CARD ONLINE PAYMENT 25072…",
+      "Payment to Chase card ending i…",
+      "Citizens Bank, N COMM LOANS250…",
+      "CHASE CREDIT CRD EPAY 250708",
+      "Parafin Capital 2025-06-282507…",
+      "AMEX EPAYMENT ACH PMT 250708 W…",
+      "AMEX EPAYMENT ACH PMT 250703 W…",
+      "PNC MAKE A PMT LOAN PYMT 25063…",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
     ],
     "partial": false
   },
@@ -58,12 +104,31 @@ const MONTHLY = [
     "revenue": 517407,
     "expenses": 472356,
     "net": 45051,
-    "lenderPayments": 44585,
+    "lenderPayments": 144594,
     "lenderNames": [
+      "CHASE CREDIT CRD EPAY 250828",
+      "AMEX EPAYMENT ACH PMT 250827 W…",
+      "DIME BANK TRANSFER 082025 LOAN…",
       "Parafin Capital 2025-08-092508…",
+      "CITI AUTOPAY PAYMENT 250815",
+      "AMEX EPAYMENT ACH PMT 250818 A…",
       "Parafin Capital 2025-07-262508…",
+      "CITI CARD ONLINE PAYMENT 25081…",
+      "AMEX EPAYMENT ACH PMT 250815 W…",
+      "AMEX EPAYMENT ACH PMT 250814 W…",
+      "CHASE CREDIT CRD AUTOPAYBUS250…",
+      "Sba Eidl Loan",
       "Parafin Capital 2025-08-022508…",
-      "Parafin Capital 2025-07-122508…"
+      "AMEX EPAYMENT ACH PMT 250812 W…",
+      "Citizens Bank, N COMM LOANS250…",
+      "AMEX EPAYMENT ACH PMT 250812",
+      "AMEX EPAYMENT ACH PMT W6430",
+      "AMEX EPAYMENT ACH PMT 250811 A…",
+      "Payment to Chase card ending i…",
+      "AMEX EPAYMENT ACH PMT W0326",
+      "Parafin Capital 2025-07-122508…",
+      "AMEX EPAYMENT ACH PMT W4474",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
     ],
     "partial": false
   },
@@ -72,8 +137,18 @@ const MONTHLY = [
     "revenue": 160584,
     "expenses": 210632,
     "net": -50048,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 125642,
+    "lenderNames": [
+      "Ny Comm",
+      "AMEX EPAYMENT RETRY PYMT W9418",
+      "AMEX EPAYMENT ACH PMT W9418",
+      "AMEX EPAYMENT ACH PMT W9812",
+      "AMEX EPAYMENT ACH PMT W1542",
+      "AMEX EPAYMENT ACH PMT W6282",
+      "AMEX EPAYMENT ACH PMT 250903 W…",
+      "LINE OF CREDIT PAYMENT 250829 …",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   },
   {
@@ -81,8 +156,10 @@ const MONTHLY = [
     "revenue": 37074,
     "expenses": 26856,
     "net": 10218,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 2351,
+    "lenderNames": [
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   },
   {
@@ -90,8 +167,11 @@ const MONTHLY = [
     "revenue": 289636,
     "expenses": 86946,
     "net": 202690,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 12979,
+    "lenderNames": [
+      "Ny Comm",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   },
   {
@@ -99,8 +179,14 @@ const MONTHLY = [
     "revenue": 442985,
     "expenses": 476590,
     "net": -33605,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 64814,
+    "lenderNames": [
+      "AMEX EPAYMENT ACH PMT",
+      "ORIG CO NAME:AMERICAN EXPRESS …",
+      "AMEX EPAYMENT ACH PMT W4298",
+      "AMEX EPAYMENT ACH PMT W9668",
+      "AMEX EPAYMENT ACH PMT W4314"
+    ],
     "partial": false
   },
   {
@@ -108,8 +194,19 @@ const MONTHLY = [
     "revenue": 450724,
     "expenses": 569343,
     "net": -118619,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 209511,
+    "lenderNames": [
+      "WELLS FARGO CARD CCPYMT",
+      "AMEX EPAYMENT ACH PMT",
+      "ORIG CO NAME:Parafin Capital O…",
+      "Payment to Chase card ending i…",
+      "AMEX EPAYMENT RETRY PYMT",
+      "Zelle payment to Loan Flex JPM…",
+      "ORIG CO NAME:AMERICAN EXPRESS …",
+      "Sba Eidl Loan",
+      "PNC LENDING PAYMENT",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   },
   {
@@ -117,8 +214,14 @@ const MONTHLY = [
     "revenue": 349218,
     "expenses": 325610,
     "net": 23608,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 145400,
+    "lenderNames": [
+      "AMEX EPAYMENT ACH PMT",
+      "ORIG CO NAME:AMERICAN EXPRESS …",
+      "ORIG CO NAME:Parafin Capital O…",
+      "Sba Eidl Loan",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   },
   {
@@ -126,8 +229,11 @@ const MONTHLY = [
     "revenue": 973,
     "expenses": 69509,
     "net": -68536,
-    "lenderPayments": 0,
-    "lenderNames": [],
+    "lenderPayments": 15998,
+    "lenderNames": [
+      "ORIG CO NAME:Parafin Capital O…",
+      "ORIG CO NAME:CHASE CREDIT CRD …"
+    ],
     "partial": false
   }
 ];
@@ -239,7 +345,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-03-02T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -305,7 +411,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-03-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -393,7 +499,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-24T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -459,7 +565,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-23T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -492,7 +598,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-23T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -503,7 +609,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-23T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -701,7 +807,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-17T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -767,7 +873,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -778,7 +884,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -789,7 +895,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -811,7 +917,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1031,7 +1137,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-09T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1042,7 +1148,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-08T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1086,7 +1192,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-08T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1097,7 +1203,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-08T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1262,7 +1368,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1306,7 +1412,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-02T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1317,7 +1423,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-02-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1350,7 +1456,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-29T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1460,7 +1566,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-27T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1471,7 +1577,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-27T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1537,7 +1643,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-26T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1548,7 +1654,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-26T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1614,7 +1720,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-22T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1779,7 +1885,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-20T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1900,7 +2006,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-19T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -1955,7 +2061,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-15T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -1966,7 +2072,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -2098,7 +2204,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-13T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2153,7 +2259,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2164,7 +2270,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2219,7 +2325,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-12T18:29:50.000Z",
     "category": "Debit",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -2263,7 +2369,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -2285,7 +2391,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -2296,7 +2402,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -2428,7 +2534,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2582,7 +2688,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-05T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2593,7 +2699,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-05T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2648,7 +2754,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2670,7 +2776,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -2703,7 +2809,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2026-01-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -3088,7 +3194,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-22T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -3099,7 +3205,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-21T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -3143,7 +3249,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-18T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -3165,7 +3271,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -3209,7 +3315,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -3220,7 +3326,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -3231,7 +3337,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -3253,7 +3359,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -3352,7 +3458,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -3363,7 +3469,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-12-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -3847,7 +3953,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-11-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -4507,7 +4613,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-11-02T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -4518,7 +4624,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-11-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -5046,7 +5152,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-10-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -5145,7 +5251,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -5343,7 +5449,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-24T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -5442,7 +5548,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-22T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -5695,7 +5801,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -5706,7 +5812,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -5750,7 +5856,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -6190,7 +6296,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -6201,7 +6307,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -6223,7 +6329,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -6278,7 +6384,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -6333,7 +6439,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-09-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -6355,7 +6461,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -6487,7 +6593,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-26T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -6663,7 +6769,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-21T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7059,7 +7165,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7070,7 +7176,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7103,7 +7209,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7147,7 +7253,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7213,7 +7319,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-13T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7312,7 +7418,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7356,7 +7462,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7378,7 +7484,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7411,7 +7517,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7422,7 +7528,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7455,7 +7561,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -7543,7 +7649,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -7565,7 +7671,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -7631,7 +7737,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -7818,7 +7924,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-05T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -7939,7 +8045,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-08-03T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -7961,7 +8067,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-31T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -8016,7 +8122,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-31T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -8214,7 +8320,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -8291,7 +8397,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-27T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -8357,7 +8463,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-24T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -8720,7 +8826,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-09T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -8786,7 +8892,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-08T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -8874,7 +8980,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -8885,7 +8991,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9039,7 +9145,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9050,7 +9156,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9061,7 +9167,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9193,7 +9299,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-07-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -9226,7 +9332,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-30T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9237,7 +9343,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -9369,7 +9475,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-25T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9413,7 +9519,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-24T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9479,7 +9585,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-22T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9743,7 +9849,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9754,7 +9860,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9765,7 +9871,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9787,7 +9893,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9798,7 +9904,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9831,7 +9937,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -9952,7 +10058,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10084,7 +10190,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-09T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10403,7 +10509,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -10425,7 +10531,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-06-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -10458,7 +10564,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-29T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10590,7 +10696,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-27T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10612,7 +10718,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-27T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10656,7 +10762,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-26T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -10744,7 +10850,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-21T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10777,7 +10883,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-21T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -10799,7 +10905,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10975,7 +11081,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-18T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -10986,7 +11092,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-18T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11030,7 +11136,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11096,7 +11202,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11129,7 +11235,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -11195,7 +11301,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11239,7 +11345,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11261,7 +11367,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11272,7 +11378,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11415,7 +11521,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11602,7 +11708,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-05T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11613,7 +11719,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-05T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11624,7 +11730,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-05T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11635,7 +11741,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-05T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -11756,7 +11862,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-05-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -11800,7 +11906,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-04-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -11866,7 +11972,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-04-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -12108,7 +12214,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-04-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -12471,7 +12577,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-04-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -12493,7 +12599,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-03-30T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -13131,7 +13237,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-03-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13142,7 +13248,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-03-02T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -13307,7 +13413,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-25T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13318,7 +13424,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-25T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13329,7 +13435,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-25T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13439,7 +13545,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-23T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13560,7 +13666,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-19T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13659,7 +13765,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13670,7 +13776,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13681,7 +13787,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13857,7 +13963,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13868,7 +13974,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13923,7 +14029,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -13945,7 +14051,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14110,7 +14216,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-10T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14154,7 +14260,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14187,7 +14293,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-09T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14341,7 +14447,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-03T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -14363,7 +14469,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14385,7 +14491,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-02T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -14495,7 +14601,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-02-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -14759,7 +14865,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14770,7 +14876,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14781,7 +14887,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -14792,7 +14898,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15067,7 +15173,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-21T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15232,7 +15338,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15243,7 +15349,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-16T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15298,7 +15404,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15397,7 +15503,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15408,7 +15514,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15419,7 +15525,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -15463,7 +15569,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -15826,7 +15932,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -15859,7 +15965,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2025-01-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -16860,7 +16966,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-12-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -17069,7 +17175,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17080,7 +17186,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17091,7 +17197,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17102,7 +17208,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17113,7 +17219,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17124,7 +17230,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-20T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17179,7 +17285,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-19T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17344,7 +17450,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17355,7 +17461,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17366,7 +17472,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17377,7 +17483,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17388,7 +17494,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-17T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17542,7 +17648,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-12T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17553,7 +17659,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-12T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17608,7 +17714,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17619,7 +17725,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-11T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17641,7 +17747,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17652,7 +17758,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -17729,7 +17835,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -17784,7 +17890,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-11-06T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18004,7 +18110,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-31T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18015,7 +18121,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-31T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18026,7 +18132,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-31T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -18081,7 +18187,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-30T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18092,7 +18198,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-30T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18191,7 +18297,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-28T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18323,7 +18429,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-23T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18356,7 +18462,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-22T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18389,7 +18495,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-21T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18565,7 +18671,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18576,7 +18682,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18587,7 +18693,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18631,7 +18737,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18642,7 +18748,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18653,7 +18759,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-14T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18763,7 +18869,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-09T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18774,7 +18880,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-09T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18785,7 +18891,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-09T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18840,7 +18946,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-08T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18851,7 +18957,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-08T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18895,7 +19001,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -18939,7 +19045,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -19071,7 +19177,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-10-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -19148,7 +19254,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-09-30T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -19159,7 +19265,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-09-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "SMALL BUSINESS CHECKING - *9950",
     "variance": "normal"
   },
@@ -19170,7 +19276,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-09-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -19885,7 +19991,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-09-02T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -19995,7 +20101,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-08-27T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -20501,7 +20607,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-08-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -20611,7 +20717,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-08-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -20622,7 +20728,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-07-31T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -21304,7 +21410,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-07-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -21337,7 +21443,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-06-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -21513,7 +21619,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-06-25T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -21568,7 +21674,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-06-24T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -21876,7 +21982,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-06-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
@@ -22118,7 +22224,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-06-02T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -22151,7 +22257,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-06-02T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -22657,7 +22763,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-05-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -22668,7 +22774,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-04-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -22844,7 +22950,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-04-21T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -23009,7 +23115,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-04-09T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -23196,7 +23302,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-03-31T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -23702,7 +23808,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-02-29T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -23944,7 +24050,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-02-14T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -24175,7 +24281,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-02-01T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -24186,7 +24292,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-01-31T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -24461,7 +24567,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-01-15T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -24505,7 +24611,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-01-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -24615,7 +24721,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-01-07T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "BUS COMPLETE CHK",
     "variance": "normal"
   },
@@ -24747,7 +24853,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2024-01-01T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -25220,7 +25326,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2023-12-11T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -25341,7 +25447,7 @@ const TRANSACTIONS = [
     "type": "expense",
     "date": "2023-11-30T18:29:50.000Z",
     "category": "Loans and Mortgages",
-    "lenderFlag": false,
+    "lenderFlag": true,
     "account": "Simply Free Business Checking",
     "variance": "normal"
   },
@@ -25525,7 +25631,7 @@ export default function DripPlaidWatch() {
               <span style={{fontFamily:"'Syne',sans-serif",fontSize:"22px",fontWeight:800,background:"linear-gradient(90deg,#4B9FFF,#1B4FD8)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",letterSpacing:"-0.5px"}}>PlaidWatch</span>
             </div>
             <div style={{fontSize:"10px",color:"rgba(27,79,216,0.6)",fontFamily:"'DM Mono',monospace",letterSpacing:"1.5px",marginTop:"1px"}}>TRADE FINANCE · CASH FLOW MONITOR</div>
-            <div style={{fontSize:"13px",fontWeight:600,color:"#0A1628",marginTop:"4px",letterSpacing:"-0.2px"}}>GBS Supplies Inc</div>
+            <div style={{fontSize:"13px",fontWeight:600,color:"#0A1628",marginTop:"4px",letterSpacing:"-0.2px"}}>GBS Supplies   March 6</div>
           </div>
         </div>
         <div style={{textAlign:"center"}}>
@@ -25803,7 +25909,7 @@ export default function DripPlaidWatch() {
       <div style={{marginTop:"16px",display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:"12px",borderTop:"1px solid rgba(27,79,216,0.1)"}}>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           <WatchFace size={16} animate={true}/>
-          <span style={{fontSize:"10px",color:"rgba(75,159,255,0.2)",fontFamily:"'DM Mono',monospace"}}>DRIP'S PLAIDWATCH · GBS Supplies Inc · {TRANSACTIONS.length} TRANSACTIONS</span>
+          <span style={{fontSize:"10px",color:"rgba(75,159,255,0.2)",fontFamily:"'DM Mono',monospace"}}>DRIP'S PLAIDWATCH · GBS Supplies   March 6 · {TRANSACTIONS.length} TRANSACTIONS</span>
         </div>
         <div style={{display:"flex",gap:"5px",alignItems:"center"}}>
           <div style={{width:"4px",height:"4px",borderRadius:"50%",background:"#4B9FFF",animation:"alertBlink 2.5s infinite"}}/>
