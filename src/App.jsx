@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-// ── Drip Capital · PlaidWatch · GBS Supplies   March 6 ─────────────────────────────────────
+// ── Drip Capital · PlaidWatch · GBS Supplies March 16 ─────────────────────────────────────
 const MONTHLY = [
   {
     "month": "Oct '25",
@@ -49,8 +49,8 @@ const MONTHLY = [
     "lenderNames": [
       "WELLS FARGO CARD CCPYMT",
       "AMEX EPAYMENT ACH PMT",
-      "ORIG CO NAME:Parafin Capital O…",
       "Payment to Chase card ending i…",
+      "ORIG CO NAME:Parafin Capital O…",
       "AMEX EPAYMENT RETRY PYMT",
       "Zelle payment to Loan Flex JPM…",
       "ORIG CO NAME:AMERICAN EXPRESS …",
@@ -68,8 +68,8 @@ const MONTHLY = [
     "lenderPayments": 145400,
     "lenderNames": [
       "AMEX EPAYMENT ACH PMT",
-      "ORIG CO NAME:AMERICAN EXPRESS …",
       "ORIG CO NAME:Parafin Capital O…",
+      "ORIG CO NAME:AMERICAN EXPRESS …",
       "Sba Eidl Loan",
       "ORIG CO NAME:CHASE CREDIT CRD …"
     ],
@@ -77,11 +77,16 @@ const MONTHLY = [
   },
   {
     "month": "Mar '26",
-    "revenue": 973,
-    "expenses": 69509,
-    "net": -68536,
-    "lenderPayments": 15998,
+    "revenue": 43650,
+    "expenses": 115350,
+    "net": -71699,
+    "lenderPayments": 50396,
     "lenderNames": [
+      "AMEX EPAYMENT ACH PMT",
+      "Parafin Capital",
+      "Sba Eidl Loan",
+      "WELLS FARGO CARD CCPYMT",
+      "Payment to Chase card ending i…",
       "ORIG CO NAME:Parafin Capital O…",
       "ORIG CO NAME:CHASE CREDIT CRD …"
     ],
@@ -92,6 +97,226 @@ const MONTHLY = [
 const TRANSACTIONS = [
   {
     "id": "txn_0",
+    "name": "AMEX EPAYMENT ACH PMT",
+    "amount": 3478.94,
+    "type": "expense",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_1",
+    "name": "eBay",
+    "amount": 708.27,
+    "type": "income",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_2",
+    "name": "CHECK",
+    "amount": 425,
+    "type": "expense",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_3",
+    "name": "AMEX EPAYMENT ACH PMT",
+    "amount": 600,
+    "type": "expense",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_4",
+    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
+    "amount": 32.95,
+    "type": "income",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Square",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_5",
+    "name": "ORIG CO NAME:AMAZON.COM.CA UL ORIG ID:9978170",
+    "amount": 335.16,
+    "type": "income",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Payroll",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_6",
+    "name": "CHECK # 2046",
+    "amount": 1850,
+    "type": "expense",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_7",
+    "name": "ORIG CO NAME:Amazon Mexico Se ORIG ID:2110000",
+    "amount": 1995.83,
+    "type": "income",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Shops",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_8",
+    "name": "eBay",
+    "amount": 177.99,
+    "type": "income",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_9",
+    "name": "eBay",
+    "amount": 532.55,
+    "type": "income",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_10",
+    "name": "PAYONEER 7362 EDI PAYMNT",
+    "amount": 13611.45,
+    "type": "income",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Shops",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_11",
+    "name": "eBay",
+    "amount": 112.12,
+    "type": "income",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_12",
+    "name": "AMEX EPAYMENT ACH PMT",
+    "amount": 13000,
+    "type": "expense",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_13",
+    "name": "Parafin Capital",
+    "amount": 16093.35,
+    "type": "expense",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": true,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_14",
+    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
+    "amount": 114.68,
+    "type": "income",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Square",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_15",
+    "name": "Sba Eidl Loan",
+    "amount": 731,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_16",
+    "name": "eBay",
+    "amount": 57.49,
+    "type": "income",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_17",
+    "name": "CHECK",
+    "amount": 4433.6,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_18",
+    "name": "Online Transfer to CHK ...8587 transaction#: ",
+    "amount": 1100,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Internal Account Transfer",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_19",
+    "name": "CHECK # 2045",
+    "amount": 2398,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_20",
     "name": "eBay",
     "amount": 146.33,
     "type": "income",
@@ -102,7 +327,73 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_1",
+    "id": "txn_21",
+    "name": "PAYONEER INC 959664007",
+    "amount": 24998.5,
+    "type": "income",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Shops",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_22",
+    "name": "CHECK",
+    "amount": 375,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_23",
+    "name": "WELLS FARGO CARD CCPYMT",
+    "amount": 155.42,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_24",
+    "name": "VISA PAYMENT",
+    "amount": 591.18,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Payment",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_25",
+    "name": "CHECK # 2044",
+    "amount": 70,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_26",
+    "name": "CHECK # 2043",
+    "amount": 200,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_27",
     "name": "eBay",
     "amount": 126.28,
     "type": "income",
@@ -113,7 +404,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_2",
+    "id": "txn_28",
     "name": "CHECK",
     "amount": 3402.55,
     "type": "expense",
@@ -124,8 +415,19 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_3",
-    "name": "ORIG CO NAME:Square Inc CO ENTRY DESCR:SQ2603",
+    "id": "txn_29",
+    "name": "Payment to Chase card ending in 3246 03/05",
+    "amount": 339,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_30",
+    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
     "amount": 148.46,
     "type": "income",
     "date": "2026-03-04T18:29:50.000Z",
@@ -135,7 +437,18 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_4",
+    "id": "txn_31",
+    "name": "The Ojc Fund Donation",
+    "amount": 1500,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Charities and Non-Profits",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_32",
     "name": "eBay",
     "amount": 197.57,
     "type": "income",
@@ -146,7 +459,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_5",
+    "id": "txn_33",
     "name": "The Ojc Fund Donation",
     "amount": 3000,
     "type": "expense",
@@ -157,7 +470,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_6",
+    "id": "txn_34",
     "name": "DDA DEBIT",
     "amount": 6263.18,
     "type": "expense",
@@ -168,18 +481,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_7",
-    "name": "The Ojc Fund Donation",
-    "amount": 1500,
-    "type": "expense",
-    "date": "2026-03-03T18:29:50.000Z",
-    "category": "Charities and Non-Profits",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_8",
+    "id": "txn_35",
     "name": "eBay",
     "amount": 241.18,
     "type": "income",
@@ -190,7 +492,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_9",
+    "id": "txn_36",
     "name": "ORIG CO NAME:Parafin Capital ORIG ID:79035186",
     "amount": 13730.49,
     "type": "expense",
@@ -201,18 +503,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_10",
-    "name": "eBay",
-    "amount": 113.55,
-    "type": "income",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_11",
+    "id": "txn_37",
     "name": "CHECK",
     "amount": 50,
     "type": "expense",
@@ -223,29 +514,18 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_12",
-    "name": "CHECK # 2042",
-    "amount": 14890,
-    "type": "expense",
+    "id": "txn_38",
+    "name": "eBay",
+    "amount": 113.55,
+    "type": "income",
     "date": "2026-03-01T18:29:50.000Z",
-    "category": "Check",
+    "category": "Digital Purchase",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Clearly Better Business Checking",
     "variance": "normal"
   },
   {
-    "id": "txn_13",
-    "name": "CHECK # 2041",
-    "amount": 19705,
-    "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_14",
+    "id": "txn_39",
     "name": "Online Transfer to CHK ...8587 transaction#: ",
     "amount": 4500,
     "type": "expense",
@@ -256,7 +536,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_15",
+    "id": "txn_40",
     "name": "ORIG CO NAME:CHASE CREDIT CRD ORIG ID:4760039",
     "amount": 2268,
     "type": "expense",
@@ -267,7 +547,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_16",
+    "id": "txn_41",
     "name": "CHECK # 2040",
     "amount": 200.01,
     "type": "expense",
@@ -278,7 +558,29 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_17",
+    "id": "txn_42",
+    "name": "CHECK # 2042",
+    "amount": 14890,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_43",
+    "name": "CHECK # 2041",
+    "amount": 19705,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_44",
     "name": "IOD INTEREST PAID",
     "amount": 0.06,
     "type": "income",
@@ -289,7 +591,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_18",
+    "id": "txn_45",
     "name": "eBay",
     "amount": 36.21,
     "type": "income",
@@ -300,7 +602,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_19",
+    "id": "txn_46",
     "name": "Unishippers",
     "amount": 5771.59,
     "type": "expense",
@@ -311,7 +613,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_20",
+    "id": "txn_47",
     "name": "ORIG CO NAME:AMAZON.COM.CA UL ORIG ID:9978170",
     "amount": 262.95,
     "type": "income",
@@ -322,7 +624,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_21",
+    "id": "txn_48",
     "name": "eBay",
     "amount": 150.57,
     "type": "income",
@@ -333,29 +635,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_22",
-    "name": "PAYONEER 7362 EDI PAYMNT",
-    "amount": 33099.58,
-    "type": "income",
-    "date": "2026-02-24T18:29:50.000Z",
-    "category": "Shops",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_23",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 5763.68,
-    "type": "expense",
-    "date": "2026-02-24T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_24",
+    "id": "txn_49",
     "name": "eBay",
     "amount": 240.33,
     "type": "income",
@@ -366,7 +646,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_25",
+    "id": "txn_50",
     "name": "CHECK",
     "amount": 13016.28,
     "type": "expense",
@@ -377,7 +657,29 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_26",
+    "id": "txn_51",
+    "name": "PAYONEER 7362 EDI PAYMNT",
+    "amount": 33099.58,
+    "type": "income",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Shops",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_52",
+    "name": "AMEX EPAYMENT ACH PMT",
+    "amount": 5763.68,
+    "type": "expense",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_53",
     "name": "eBay",
     "amount": 664.13,
     "type": "income",
@@ -388,40 +690,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_27",
-    "name": "Online Transfer to CHK ...5536 transaction#: ",
-    "amount": 3000,
-    "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Internal Account Transfer",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_28",
-    "name": "ORIG CO NAME:CITIZENSBANK NA ORIG ID:25814938",
-    "amount": 2447.2,
-    "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Service",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_29",
-    "name": "ORIG CO NAME:AMERICAN EXPRESS ORIG ID:2005032",
-    "amount": 20000,
-    "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_30",
+    "id": "txn_54",
     "name": "Online Transfer to CHK ...8587 transaction#: ",
     "amount": 700,
     "type": "expense",
@@ -432,7 +701,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_31",
+    "id": "txn_55",
     "name": "Unishippers",
     "amount": 5848.58,
     "type": "expense",
@@ -443,7 +712,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_32",
+    "id": "txn_56",
     "name": "ORIG CO NAME:Parafin Capital ORIG ID:79035186",
     "amount": 13637.92,
     "type": "expense",
@@ -454,7 +723,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_33",
+    "id": "txn_57",
     "name": "ORIG CO NAME:AMERICAN EXPRESS ORIG ID:2005032",
     "amount": 15000,
     "type": "expense",
@@ -465,7 +734,40 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_34",
+    "id": "txn_58",
+    "name": "Online Transfer to CHK ...5536 transaction#: ",
+    "amount": 3000,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Internal Account Transfer",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_59",
+    "name": "ORIG CO NAME:CITIZENSBANK NA ORIG ID:25814938",
+    "amount": 2447.2,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Service",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_60",
+    "name": "ORIG CO NAME:AMERICAN EXPRESS ORIG ID:2005032",
+    "amount": 20000,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": true,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_61",
     "name": "eBay",
     "amount": 43.21,
     "type": "income",
@@ -476,18 +778,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_35",
-    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
-    "amount": 14.85,
-    "type": "income",
-    "date": "2026-02-22T18:29:50.000Z",
-    "category": "Square",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_36",
+    "id": "txn_62",
     "name": "Online Transfer to CHK ...3873 transaction#: ",
     "amount": 500,
     "type": "expense",
@@ -498,7 +789,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_37",
+    "id": "txn_63",
     "name": "ORIG CO NAME:AMAZON.CM0C549HP ORIG ID:3215240",
     "amount": 117533.56,
     "type": "income",
@@ -509,7 +800,18 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_38",
+    "id": "txn_64",
+    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
+    "amount": 14.85,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Square",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_65",
     "name": "TO CHECKING 4021526551",
     "amount": 5000,
     "type": "expense",
@@ -520,18 +822,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_39",
-    "name": "eBay",
-    "amount": 987.54,
-    "type": "income",
-    "date": "2026-02-19T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_40",
+    "id": "txn_66",
     "name": "Mazda Financial",
     "amount": 572.22,
     "type": "expense",
@@ -542,7 +833,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_41",
+    "id": "txn_67",
     "name": "FROM CHECKING 4032993415",
     "amount": 5000,
     "type": "income",
@@ -553,7 +844,18 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_42",
+    "id": "txn_68",
+    "name": "eBay",
+    "amount": 987.54,
+    "type": "income",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Clearly Better Business Checking",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_69",
     "name": "eBay",
     "amount": 40.38,
     "type": "income",
@@ -564,18 +866,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_43",
-    "name": "Online Transfer to CHK ...8587 transaction#: ",
-    "amount": 4500,
-    "type": "expense",
-    "date": "2026-02-18T18:29:50.000Z",
-    "category": "Internal Account Transfer",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_44",
+    "id": "txn_70",
     "name": "CHECK # 2033",
     "amount": 2398,
     "type": "expense",
@@ -586,7 +877,18 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_45",
+    "id": "txn_71",
+    "name": "Online Transfer to CHK ...8587 transaction#: ",
+    "amount": 4500,
+    "type": "expense",
+    "date": "2026-02-18T18:29:50.000Z",
+    "category": "Internal Account Transfer",
+    "lenderFlag": false,
+    "account": "BUS COMPLETE CHK",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_72",
     "name": "WIRE TRANSFER FEES",
     "amount": 30,
     "type": "expense",
@@ -597,7 +899,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_46",
+    "id": "txn_73",
     "name": "WIRE TRANSFER FEES",
     "amount": 30,
     "type": "expense",
@@ -608,7 +910,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_47",
+    "id": "txn_74",
     "name": "Benefi",
     "amount": 5000,
     "type": "expense",
@@ -619,7 +921,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_48",
+    "id": "txn_75",
     "name": "BENEFICIARY NAME : DRIP CAPITAL, INC. ORIG TO",
     "amount": 2908.4,
     "type": "expense",
@@ -630,51 +932,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_49",
-    "name": "Online Transfer from CHK ...8587 transaction#",
-    "amount": 1000.6,
-    "type": "income",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Internal Account Transfer",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_50",
-    "name": "Online Transfer from CHK ...3873 transaction#",
-    "amount": 1000.5,
-    "type": "income",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Internal Account Transfer",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_51",
-    "name": "ORIG CO NAME:Parafin Capital ORIG ID:79035186",
-    "amount": 13096.99,
-    "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Debit",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_52",
-    "name": "DOMESTIC INCOMING WIRE FEE",
-    "amount": 15,
-    "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Wire",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_53",
+    "id": "txn_76",
     "name": "ORIG CO NAME:AMAZON.CVZRYOV6R ORIG ID:3215240",
     "amount": 11146.46,
     "type": "income",
@@ -685,7 +943,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_54",
+    "id": "txn_77",
     "name": "FEDWIRE CREDIT VIA: CITIZENS BANK, NA/0115001",
     "amount": 5000,
     "type": "income",
@@ -696,7 +954,7 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_55",
+    "id": "txn_78",
     "name": "CHECK # 2035",
     "amount": 500,
     "type": "expense",
@@ -707,267 +965,14 @@ const TRANSACTIONS = [
     "variance": "normal"
   },
   {
-    "id": "txn_56",
-    "name": "Unishippers",
-    "amount": 6630.09,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Gas Stations",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_57",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 12000,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_58",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 1668.32,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_59",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 501.16,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_60",
-    "name": "eBay",
-    "amount": 161.89,
+    "id": "txn_79",
+    "name": "Online Transfer from CHK ...8587 transaction#",
+    "amount": 1000.6,
     "type": "income",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_61",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 10202.97,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_62",
-    "name": "Online Transfer to CHK ...5536 transaction#: ",
-    "amount": 2000,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
+    "date": "2026-02-17T18:29:50.000Z",
     "category": "Internal Account Transfer",
     "lenderFlag": false,
     "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_63",
-    "name": "CHECK # 2039",
-    "amount": 400,
-    "type": "expense",
-    "date": "2026-02-16T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_64",
-    "name": "eBay",
-    "amount": 177,
-    "type": "income",
-    "date": "2026-02-12T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_65",
-    "name": "ORIG CO NAME:AMAZON.COM.CA UL ORIG ID:9978170",
-    "amount": 626.54,
-    "type": "income",
-    "date": "2026-02-12T18:29:50.000Z",
-    "category": "Payroll",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_66",
-    "name": "CHECK # 2038",
-    "amount": 184,
-    "type": "expense",
-    "date": "2026-02-12T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_67",
-    "name": "CHECK # 2034",
-    "amount": 1850,
-    "type": "expense",
-    "date": "2026-02-12T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_68",
-    "name": "CHECK # 2037",
-    "amount": 25141.33,
-    "type": "expense",
-    "date": "2026-02-12T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_69",
-    "name": "CHECK # 2036",
-    "amount": 34598.47,
-    "type": "expense",
-    "date": "2026-02-12T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_70",
-    "name": "eBay",
-    "amount": 60.51,
-    "type": "income",
-    "date": "2026-02-11T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_71",
-    "name": "The Ojc Fund Donation",
-    "amount": 1500,
-    "type": "expense",
-    "date": "2026-02-11T18:29:50.000Z",
-    "category": "Charities and Non-Profits",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_72",
-    "name": "PAYONEER INC 950021946",
-    "amount": 42049.65,
-    "type": "income",
-    "date": "2026-02-10T18:29:50.000Z",
-    "category": "Shops",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_73",
-    "name": "eBay",
-    "amount": 28.53,
-    "type": "income",
-    "date": "2026-02-10T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_74",
-    "name": "ORIG CO NAME:Amazon Servicos ORIG ID:10299861",
-    "amount": 10.2,
-    "type": "income",
-    "date": "2026-02-10T18:29:50.000Z",
-    "category": "Payroll",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_75",
-    "name": "CHECK # 2032",
-    "amount": 12548.23,
-    "type": "expense",
-    "date": "2026-02-10T18:29:50.000Z",
-    "category": "Check",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_76",
-    "name": "ORIG CO NAME:Amazon Servicos ORIG ID:10299861",
-    "amount": 10.76,
-    "type": "income",
-    "date": "2026-02-10T18:29:50.000Z",
-    "category": "Payroll",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_77",
-    "name": "RETURNED ITEM ( 1 AT $35 )",
-    "amount": 35,
-    "type": "expense",
-    "date": "2026-02-09T18:29:50.000Z",
-    "category": "Debit",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_78",
-    "name": "DDA CREDIT",
-    "amount": 1850,
-    "type": "income",
-    "date": "2026-02-09T18:29:50.000Z",
-    "category": "Credit",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
-    "id": "txn_79",
-    "name": "eBay",
-    "amount": 330.5,
-    "type": "income",
-    "date": "2026-02-09T18:29:50.000Z",
-    "category": "Digital Purchase",
-    "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
     "variance": "normal"
   }
 ];
@@ -1117,7 +1122,7 @@ export default function DripPlaidWatch() {
               <span style={{fontFamily:"'Syne',sans-serif",fontSize:"22px",fontWeight:800,background:"linear-gradient(90deg,#4B9FFF,#1B4FD8)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",letterSpacing:"-0.5px"}}>PlaidWatch</span>
             </div>
             <div style={{fontSize:"10px",color:"rgba(27,79,216,0.6)",fontFamily:"'DM Mono',monospace",letterSpacing:"1.5px",marginTop:"1px"}}>TRADE FINANCE · CASH FLOW MONITOR</div>
-            <div style={{fontSize:"13px",fontWeight:600,color:"#0A1628",marginTop:"4px",letterSpacing:"-0.2px"}}>GBS Supplies   March 6</div>
+            <div style={{fontSize:"13px",fontWeight:600,color:"#0A1628",marginTop:"4px",letterSpacing:"-0.2px"}}>GBS Supplies March 16</div>
           </div>
         </div>
         <div style={{textAlign:"center"}}>
@@ -1395,7 +1400,7 @@ export default function DripPlaidWatch() {
       <div style={{marginTop:"16px",display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:"12px",borderTop:"1px solid rgba(27,79,216,0.1)"}}>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           <WatchFace size={16} animate={true}/>
-          <span style={{fontSize:"10px",color:"rgba(75,159,255,0.2)",fontFamily:"'DM Mono',monospace"}}>DRIP'S PLAIDWATCH · GBS Supplies   March 6 · {TRANSACTIONS.length} TRANSACTIONS</span>
+          <span style={{fontSize:"10px",color:"rgba(75,159,255,0.2)",fontFamily:"'DM Mono',monospace"}}>DRIP'S PLAIDWATCH · GBS Supplies March 16 · {TRANSACTIONS.length} TRANSACTIONS</span>
         </div>
         <div style={{display:"flex",gap:"5px",alignItems:"center"}}>
           <div style={{width:"4px",height:"4px",borderRadius:"50%",background:"#4B9FFF",animation:"alertBlink 2.5s infinite"}}/>
