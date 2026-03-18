@@ -1,983 +1,3331 @@
 import { useState, useEffect } from "react";
 
-// ── Drip Capital · PlaidWatch · GBS Supplies March 16 ─────────────────────────────────────
+// ── Drip Capital · PlaidWatch · Sohnaa Foods   March ─────────────────────────────────────
 const MONTHLY = [
   {
-    "month": "Oct '25",
-    "revenue": 37074,
-    "expenses": 26856,
-    "net": 10218,
-    "lenderPayments": 2351,
-    "lenderNames": [
-      "ORIG CO NAME:CHASE CREDIT CRD …"
-    ],
-    "partial": false
-  },
-  {
-    "month": "Nov '25",
-    "revenue": 289636,
-    "expenses": 86946,
-    "net": 202690,
-    "lenderPayments": 12979,
-    "lenderNames": [
-      "Ny Comm",
-      "ORIG CO NAME:CHASE CREDIT CRD …"
-    ],
-    "partial": false
-  },
-  {
-    "month": "Dec '25",
-    "revenue": 442985,
-    "expenses": 476590,
-    "net": -33605,
-    "lenderPayments": 64814,
-    "lenderNames": [
-      "AMEX EPAYMENT ACH PMT",
-      "ORIG CO NAME:AMERICAN EXPRESS …",
-      "AMEX EPAYMENT ACH PMT W4298",
-      "AMEX EPAYMENT ACH PMT W9668",
-      "AMEX EPAYMENT ACH PMT W4314"
-    ],
-    "partial": false
-  },
-  {
-    "month": "Jan '26",
-    "revenue": 450724,
-    "expenses": 569343,
-    "net": -118619,
-    "lenderPayments": 209511,
-    "lenderNames": [
-      "WELLS FARGO CARD CCPYMT",
-      "AMEX EPAYMENT ACH PMT",
-      "Payment to Chase card ending i…",
-      "ORIG CO NAME:Parafin Capital O…",
-      "AMEX EPAYMENT RETRY PYMT",
-      "Zelle payment to Loan Flex JPM…",
-      "ORIG CO NAME:AMERICAN EXPRESS …",
-      "Sba Eidl Loan",
-      "PNC LENDING PAYMENT",
-      "ORIG CO NAME:CHASE CREDIT CRD …"
-    ],
-    "partial": false
-  },
-  {
     "month": "Feb '26",
-    "revenue": 349218,
-    "expenses": 325610,
-    "net": 23608,
-    "lenderPayments": 145400,
+    "revenue": 128989,
+    "expenses": 114468,
+    "net": 14521,
+    "lenderPayments": 1500,
     "lenderNames": [
-      "AMEX EPAYMENT ACH PMT",
-      "ORIG CO NAME:Parafin Capital O…",
-      "ORIG CO NAME:AMERICAN EXPRESS …",
-      "Sba Eidl Loan",
-      "ORIG CO NAME:CHASE CREDIT CRD …"
+      "ZELLE TO KIRAN NEW NO ON 02/26…"
     ],
     "partial": false
   },
   {
     "month": "Mar '26",
-    "revenue": 43650,
-    "expenses": 115350,
-    "net": -71699,
-    "lenderPayments": 50396,
+    "revenue": 142568,
+    "expenses": 131048,
+    "net": 11520,
+    "lenderPayments": 5265,
     "lenderNames": [
-      "AMEX EPAYMENT ACH PMT",
-      "Parafin Capital",
-      "Sba Eidl Loan",
-      "WELLS FARGO CARD CCPYMT",
-      "Payment to Chase card ending i…",
-      "ORIG CO NAME:Parafin Capital O…",
-      "ORIG CO NAME:CHASE CREDIT CRD …"
+      "ZELLE TO KIRAN NEW NO ON 03/11…",
+      "Dept Education Student Ln",
+      "ZELLE TO SUKHPREET SINGH ON 03…",
+      "Dept Education",
+      "ZELLE TO KAUR MANDEEP ON 03/03…"
     ],
-    "partial": false
+    "partial": true
   }
 ];
 
 const TRANSACTIONS = [
   {
-    "id": "txn_0",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 3478.94,
-    "type": "expense",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
-    "variance": "normal"
-  },
-  {
     "id": "txn_1",
-    "name": "eBay",
-    "amount": 708.27,
-    "type": "income",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "Neiman Marcu",
+    "amount": 3273.76,
+    "type": "expense",
+    "date": "2026-03-17T18:29:50.000Z",
+    "category": "Financial",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_2",
-    "name": "CHECK",
-    "amount": 425,
+    "name": "ZELLE TO SUKHPREET SINGH ON 03/17 REF # WFCT0",
+    "amount": 500,
     "type": "expense",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_3",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 600,
-    "type": "expense",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
+    "name": "ZELLE FROM GURMUKH SINGH ON 03/17 REF # BACFK",
+    "amount": 30,
+    "type": "income",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_4",
-    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
-    "amount": 32.95,
-    "type": "income",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Square",
+    "name": "WIRE TRANSFER WITHDRAWAL",
+    "amount": 3210.11,
+    "type": "expense",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Wire",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_5",
-    "name": "ORIG CO NAME:AMAZON.COM.CA UL ORIG ID:9978170",
-    "amount": 335.16,
-    "type": "income",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Payroll",
+    "name": "WIRE TRANSFER WITHDRAWAL",
+    "amount": 588,
+    "type": "expense",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Wire",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_6",
-    "name": "CHECK # 2046",
-    "amount": 1850,
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 4000,
     "type": "expense",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_7",
-    "name": "ORIG CO NAME:Amazon Mexico Se ORIG ID:2110000",
-    "amount": 1995.83,
-    "type": "income",
-    "date": "2026-03-12T18:29:50.000Z",
-    "category": "Shops",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2600,
+    "type": "expense",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_8",
-    "name": "eBay",
-    "amount": 177.99,
+    "name": "Credit Item",
+    "amount": 7492,
     "type": "income",
-    "date": "2026-03-11T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_9",
-    "name": "eBay",
-    "amount": 532.55,
+    "name": "Credit Item",
+    "amount": 9475,
     "type": "income",
-    "date": "2026-03-10T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_10",
-    "name": "PAYONEER 7362 EDI PAYMNT",
-    "amount": 13611.45,
-    "type": "income",
-    "date": "2026-03-10T18:29:50.000Z",
-    "category": "Shops",
+    "name": "ZELLE TO HARBANS SINGH ON 03/17 REF # WFCT0ZX",
+    "amount": 150,
+    "type": "expense",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_11",
-    "name": "eBay",
-    "amount": 112.12,
+    "name": "Credit Item",
+    "amount": 3988.5,
     "type": "income",
-    "date": "2026-03-09T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_12",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 13000,
-    "type": "expense",
-    "date": "2026-03-09T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 4000,
+    "type": "income",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_13",
-    "name": "Parafin Capital",
-    "amount": 16093.35,
+    "name": "CHECK",
+    "amount": 2415,
     "type": "expense",
-    "date": "2026-03-09T18:29:50.000Z",
-    "category": "Restaurants",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Check",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_14",
-    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
-    "amount": 114.68,
-    "type": "income",
-    "date": "2026-03-09T18:29:50.000Z",
-    "category": "Square",
+    "name": "TRANSFER RMTLY* R3786 +18887364859 WA CARD135",
+    "amount": 1800,
+    "type": "expense",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_15",
-    "name": "Sba Eidl Loan",
-    "amount": 731,
+    "name": "TRANSFER RMTLY* R2817 +18887364859 WA CARD135",
+    "amount": 1504.34,
     "type": "expense",
-    "date": "2026-03-08T18:29:50.000Z",
-    "category": "Loans and Mortgages",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_16",
-    "name": "eBay",
-    "amount": 57.49,
-    "type": "income",
-    "date": "2026-03-08T18:29:50.000Z",
+    "name": "Amazon",
+    "amount": 182.11,
+    "type": "expense",
+    "date": "2026-03-16T18:29:50.000Z",
     "category": "Digital Purchase",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_17",
-    "name": "CHECK",
-    "amount": 4433.6,
-    "type": "expense",
-    "date": "2026-03-08T18:29:50.000Z",
-    "category": "Check",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2600,
+    "type": "income",
+    "date": "2026-03-16T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_18",
-    "name": "Online Transfer to CHK ...8587 transaction#: ",
-    "amount": 1100,
-    "type": "expense",
-    "date": "2026-03-08T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "name": "MOBILE DEPOSIT : REF NUMBER :917160246665",
+    "amount": 769,
+    "type": "income",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_19",
-    "name": "CHECK # 2045",
-    "amount": 2398,
-    "type": "expense",
-    "date": "2026-03-08T18:29:50.000Z",
-    "category": "Check",
+    "name": "MOBILE DEPOSIT : REF NUMBER :817160245889",
+    "amount": 5252.5,
+    "type": "income",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_20",
-    "name": "eBay",
-    "amount": 146.33,
-    "type": "income",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "ZELLE TO HARBANS SINGH ON 03/16 REF # WFCT0ZX",
+    "amount": 3000,
+    "type": "expense",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_21",
-    "name": "PAYONEER INC 959664007",
-    "amount": 24998.5,
+    "name": "ZELLE FROM ER XPRESS INC ON 03/14 REF # BACFT",
+    "amount": 50,
     "type": "income",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Shops",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_22",
-    "name": "CHECK",
-    "amount": 375,
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 3000,
     "type": "expense",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_23",
-    "name": "WELLS FARGO CARD CCPYMT",
-    "amount": 155.42,
+    "name": "OpenAI",
+    "amount": 18.37,
     "type": "expense",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Other",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_24",
-    "name": "VISA PAYMENT",
-    "amount": 591.18,
+    "name": "Apple",
+    "amount": 10.99,
     "type": "expense",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Payment",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Digital Purchase",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_25",
-    "name": "CHECK # 2044",
-    "amount": 70,
+    "name": "Hapn",
+    "amount": 14.95,
     "type": "expense",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Service",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_26",
-    "name": "CHECK # 2043",
-    "amount": 200,
-    "type": "expense",
-    "date": "2026-03-05T18:29:50.000Z",
-    "category": "Check",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 3000,
+    "type": "income",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_27",
-    "name": "eBay",
-    "amount": 126.28,
-    "type": "income",
-    "date": "2026-03-04T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "Chevron",
+    "amount": 124.61,
+    "type": "expense",
+    "date": "2026-03-15T18:29:50.000Z",
+    "category": "Gas Stations",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_28",
-    "name": "CHECK",
-    "amount": 3402.55,
-    "type": "expense",
-    "date": "2026-03-04T18:29:50.000Z",
-    "category": "Check",
+    "name": "ZELLE FROM SS BAJWA TRUCKING INC ON 03/13 REF",
+    "amount": 178,
+    "type": "income",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_29",
-    "name": "Payment to Chase card ending in 3246 03/05",
-    "amount": 339,
-    "type": "expense",
-    "date": "2026-03-04T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "name": "ZELLE FROM AVANPREET KAUR ON 03/13 REF # BACW",
+    "amount": 25,
+    "type": "income",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_30",
-    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
-    "amount": 148.46,
+    "name": "ZELLE FROM AVANPREET KAUR ON 03/13 REF # BACY",
+    "amount": 290,
     "type": "income",
-    "date": "2026-03-04T18:29:50.000Z",
-    "category": "Square",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_31",
-    "name": "The Ojc Fund Donation",
-    "amount": 1500,
+    "name": "The Meritage Resort and Spa",
+    "amount": 779.98,
     "type": "expense",
-    "date": "2026-03-03T18:29:50.000Z",
-    "category": "Charities and Non-Profits",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Lodging",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_32",
-    "name": "eBay",
-    "amount": 197.57,
-    "type": "income",
-    "date": "2026-03-03T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "Credit One Bank Payment 260307 70557252 SHAHB",
+    "amount": 386.58,
+    "type": "expense",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit Card",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_33",
-    "name": "The Ojc Fund Donation",
-    "amount": 3000,
+    "name": "Credit One Bank Payment 260307 41499228 SHAHB",
+    "amount": 129.12,
     "type": "expense",
-    "date": "2026-03-03T18:29:50.000Z",
-    "category": "Charities and Non-Profits",
+    "date": "2026-03-12T18:29:50.000Z",
+    "category": "Credit Card",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_34",
-    "name": "DDA DEBIT",
-    "amount": 6263.18,
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 6000,
     "type": "expense",
-    "date": "2026-03-03T18:29:50.000Z",
+    "date": "2026-03-11T18:29:50.000Z",
     "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (2141)",
     "variance": "normal"
   },
   {
     "id": "txn_35",
-    "name": "eBay",
-    "amount": 241.18,
-    "type": "income",
-    "date": "2026-03-02T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "ONLINE TRANSFER TO AULAKH S EVERYDAY CHECKING",
+    "amount": 2600,
+    "type": "expense",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (2141)",
     "variance": "normal"
   },
   {
     "id": "txn_36",
-    "name": "ORIG CO NAME:Parafin Capital ORIG ID:79035186",
-    "amount": 13730.49,
-    "type": "expense",
-    "date": "2026-03-02T18:29:50.000Z",
-    "category": "Debit",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 2600,
+    "type": "income",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (7275)",
     "variance": "normal"
   },
   {
     "id": "txn_37",
-    "name": "CHECK",
-    "amount": 50,
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26031219559",
+    "amount": 25,
     "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Wire Transfer",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_38",
-    "name": "eBay",
-    "amount": 113.55,
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 6000,
     "type": "income",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_39",
-    "name": "Online Transfer to CHK ...8587 transaction#: ",
-    "amount": 4500,
-    "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "name": "MOBILE DEPOSIT : REF NUMBER :012120732461",
+    "amount": 3327,
+    "type": "income",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_40",
-    "name": "ORIG CO NAME:CHASE CREDIT CRD ORIG ID:4760039",
-    "amount": 2268,
+    "name": "WT 260312-195591 PUNJAB NATIONAL BAN /BNF=Ais",
+    "amount": 10000,
     "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_41",
-    "name": "CHECK # 2040",
-    "amount": 200.01,
+    "name": "Identity IQ",
+    "amount": 29.99,
     "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Financial",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_42",
-    "name": "CHECK # 2042",
-    "amount": 14890,
+    "name": "Living Spaces",
+    "amount": 212.55,
     "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-11T18:29:50.000Z",
+    "category": "Furniture and Home Decor",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_43",
-    "name": "CHECK # 2041",
-    "amount": 19705,
-    "type": "expense",
-    "date": "2026-03-01T18:29:50.000Z",
-    "category": "Check",
+    "name": "ZELLE FROM NEW INDIAN SUPERMARKET ON 03/11 RE",
+    "amount": 8600,
+    "type": "income",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (2141)",
     "variance": "normal"
   },
   {
     "id": "txn_44",
-    "name": "IOD INTEREST PAID",
-    "amount": 0.06,
-    "type": "income",
-    "date": "2026-02-26T18:29:50.000Z",
-    "category": "Interest Earned",
+    "name": "WT 260311-142817 JPMORGAN CHASE BANK /BNF=DRI",
+    "amount": 1305,
+    "type": "expense",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Wire",
     "lenderFlag": false,
-    "account": "Business Money Market",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_45",
-    "name": "eBay",
-    "amount": 36.21,
-    "type": "income",
-    "date": "2026-02-26T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2300,
+    "type": "expense",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_46",
-    "name": "Unishippers",
-    "amount": 5771.59,
+    "name": "ATM WITHDRAWAL AUTHORIZED ON 03/11 160 N Main",
+    "amount": 200,
     "type": "expense",
-    "date": "2026-02-26T18:29:50.000Z",
-    "category": "Service",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "ATM",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_47",
-    "name": "ORIG CO NAME:AMAZON.COM.CA UL ORIG ID:9978170",
-    "amount": 262.95,
-    "type": "income",
-    "date": "2026-02-26T18:29:50.000Z",
-    "category": "Payroll",
-    "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "name": "ZELLE TO KIRAN NEW NO ON 03/11 REF # WFCT0ZWQ",
+    "amount": 3500,
+    "type": "expense",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_48",
-    "name": "eBay",
-    "amount": 150.57,
+    "name": "ZELLE FROM TANDOORI BAR AND GRILL LLC ON 03/1",
+    "amount": 2785,
     "type": "income",
-    "date": "2026-02-25T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Restaurants",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_49",
-    "name": "eBay",
-    "amount": 240.33,
-    "type": "income",
-    "date": "2026-02-24T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26031114281",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Wire Transfer",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_50",
-    "name": "CHECK",
-    "amount": 13016.28,
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2000,
     "type": "expense",
-    "date": "2026-02-24T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_51",
-    "name": "PAYONEER 7362 EDI PAYMNT",
-    "amount": 33099.58,
+    "name": "MOBILE DEPOSIT : REF NUMBER :616110878339",
+    "amount": 1111,
     "type": "income",
-    "date": "2026-02-24T18:29:50.000Z",
-    "category": "Shops",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_52",
-    "name": "AMEX EPAYMENT ACH PMT",
-    "amount": 5763.68,
+    "name": "BUSINESS TO BUSINESS ACH CAPITAL ONE MOBILE P",
+    "amount": 1967.03,
     "type": "expense",
-    "date": "2026-02-24T18:29:50.000Z",
+    "date": "2026-03-10T18:29:50.000Z",
     "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "Clearly Better Business Checking",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_53",
-    "name": "eBay",
-    "amount": 664.13,
-    "type": "income",
-    "date": "2026-02-23T18:29:50.000Z",
+    "name": "Apple",
+    "amount": 19.99,
+    "type": "expense",
+    "date": "2026-03-10T18:29:50.000Z",
     "category": "Digital Purchase",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_54",
-    "name": "Online Transfer to CHK ...8587 transaction#: ",
-    "amount": 700,
+    "name": "Bottega Napa",
+    "amount": 78.18,
     "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Restaurants",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_55",
-    "name": "Unishippers",
-    "amount": 5848.58,
+    "name": "The Meritage Resort and Spa",
+    "amount": 891.06,
     "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Service",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Lodging",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_56",
-    "name": "ORIG CO NAME:Parafin Capital ORIG ID:79035186",
-    "amount": 13637.92,
-    "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Debit",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2300,
+    "type": "income",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_57",
-    "name": "ORIG CO NAME:AMERICAN EXPRESS ORIG ID:2005032",
-    "amount": 15000,
-    "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2000,
+    "type": "income",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_58",
-    "name": "Online Transfer to CHK ...5536 transaction#: ",
-    "amount": 3000,
+    "name": "CHECK",
+    "amount": 738.22,
     "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "date": "2026-03-10T18:29:50.000Z",
+    "category": "Check",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_59",
-    "name": "ORIG CO NAME:CITIZENSBANK NA ORIG ID:25814938",
-    "amount": 2447.2,
+    "name": "Beauty And You Hong Kong",
+    "amount": 64.35,
     "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Service",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Beauty Products",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (2141)",
     "variance": "normal"
   },
   {
     "id": "txn_60",
-    "name": "ORIG CO NAME:AMERICAN EXPRESS ORIG ID:2005032",
-    "amount": 20000,
+    "name": "ZELLE TO AMRITPA SINGH ON 03/10 REF # WFCT0ZW",
+    "amount": 550,
     "type": "expense",
-    "date": "2026-02-23T18:29:50.000Z",
-    "category": "Credit Card",
-    "lenderFlag": true,
-    "account": "BUS COMPLETE CHK",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_61",
-    "name": "eBay",
-    "amount": 43.21,
+    "name": "ZELLE FROM VANSHDEEP SINGH ON 03/10 REF # BAC",
+    "amount": 45,
     "type": "income",
-    "date": "2026-02-22T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_62",
-    "name": "Online Transfer to CHK ...3873 transaction#: ",
-    "amount": 500,
-    "type": "expense",
-    "date": "2026-02-22T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS CHE",
+    "amount": 4000,
+    "type": "income",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_63",
-    "name": "ORIG CO NAME:AMAZON.CM0C549HP ORIG ID:3215240",
-    "amount": 117533.56,
+    "name": "MOBILE DEPOSIT : REF NUMBER :811100387649",
+    "amount": 982,
     "type": "income",
-    "date": "2026-02-22T18:29:50.000Z",
-    "category": "Shops",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_64",
-    "name": "ORIG CO NAME:Square Inc ORIG ID:9424300002 DE",
-    "amount": 14.85,
+    "name": "MOBILE DEPOSIT : REF NUMBER :714100615955",
+    "amount": 12081,
     "type": "income",
-    "date": "2026-02-22T18:29:50.000Z",
-    "category": "Square",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_65",
-    "name": "TO CHECKING 4021526551",
-    "amount": 5000,
-    "type": "expense",
-    "date": "2026-02-19T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "name": "MOBILE DEPOSIT : REF NUMBER :511100395841",
+    "amount": 1070,
+    "type": "income",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "Business Money Market",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_66",
-    "name": "Mazda Financial",
-    "amount": 572.22,
-    "type": "expense",
-    "date": "2026-02-19T18:29:50.000Z",
-    "category": "Car Dealers and Leasing",
+    "name": "MOBILE DEPOSIT : REF NUMBER :510100318633",
+    "amount": 2106,
+    "type": "income",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_67",
-    "name": "FROM CHECKING 4032993415",
-    "amount": 5000,
-    "type": "income",
-    "date": "2026-02-19T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "name": "IMAGINE VISA PMT ePay 260307 IMAGINE VISA PM ",
+    "amount": 70,
+    "type": "expense",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Payment",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_68",
-    "name": "eBay",
-    "amount": 987.54,
+    "name": "ZELLE FROM GURMUKH SINGH ON 03/10 REF # USBHR",
+    "amount": 490,
     "type": "income",
-    "date": "2026-02-19T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_69",
-    "name": "eBay",
-    "amount": 40.38,
+    "name": "MOBILE DEPOSIT : REF NUMBER :211100392305",
+    "amount": 337,
     "type": "income",
-    "date": "2026-02-18T18:29:50.000Z",
-    "category": "Digital Purchase",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (8391)",
     "variance": "normal"
   },
   {
     "id": "txn_70",
-    "name": "CHECK # 2033",
-    "amount": 2398,
+    "name": "Bottega",
+    "amount": 58.18,
     "type": "expense",
-    "date": "2026-02-18T18:29:50.000Z",
-    "category": "Check",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Restaurants",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_71",
-    "name": "Online Transfer to CHK ...8587 transaction#: ",
-    "amount": 4500,
+    "name": "ZELLE TO HARBANS SINGH ON 03/10 REF # WFCT0ZW",
+    "amount": 50,
     "type": "expense",
-    "date": "2026-02-18T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Gas Stations",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_72",
-    "name": "WIRE TRANSFER FEES",
-    "amount": 30,
+    "name": "Biberk Insurance",
+    "amount": 70.04,
     "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Wire",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Insurance",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_73",
-    "name": "WIRE TRANSFER FEES",
-    "amount": 30,
+    "name": "Walmart",
+    "amount": 94.6,
     "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Wire",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_74",
-    "name": "Benefi",
-    "amount": 5000,
+    "name": "Rh Yountville Rest",
+    "amount": 30.36,
     "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Shops",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Restaurants",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_75",
-    "name": "BENEFICIARY NAME : DRIP CAPITAL, INC. ORIG TO",
-    "amount": 2908.4,
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 4000,
     "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
+    "date": "2026-03-09T18:29:50.000Z",
     "category": "Debit",
     "lenderFlag": false,
-    "account": "Clearly Better Business Checking",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_76",
-    "name": "ORIG CO NAME:AMAZON.CVZRYOV6R ORIG ID:3215240",
-    "amount": 11146.46,
-    "type": "income",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Shops",
+    "name": "Credit One Bank Payment 260225 70557252 AULAK",
+    "amount": 30,
+    "type": "expense",
+    "date": "2026-03-09T18:29:50.000Z",
+    "category": "Credit Card",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   },
   {
     "id": "txn_77",
-    "name": "FEDWIRE CREDIT VIA: CITIZENS BANK, NA/0115001",
-    "amount": 5000,
-    "type": "income",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Wire",
+    "name": "Paseo Villas",
+    "amount": 2370.24,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Rent",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (2141)",
     "variance": "normal"
   },
   {
     "id": "txn_78",
-    "name": "CHECK # 2035",
-    "amount": 500,
-    "type": "expense",
-    "date": "2026-02-17T18:29:50.000Z",
-    "category": "Check",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 100,
+    "type": "income",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Credit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (2141)",
     "variance": "normal"
   },
   {
     "id": "txn_79",
-    "name": "Online Transfer from CHK ...8587 transaction#",
-    "amount": 1000.6,
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2000,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_80",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 3000,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_81",
+    "name": "MOBILE DEPOSIT : REF NUMBER :321060648885",
+    "amount": 2825,
+    "type": "income",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_82",
+    "name": "Bottega Napa",
+    "amount": 129.13,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_83",
+    "name": "Bistro Don Giovanni",
+    "amount": 127.45,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_84",
+    "name": "Staples",
+    "amount": 35.95,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Office Supplies",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_85",
+    "name": "SFO Long Term Parking",
+    "amount": 12,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Parking",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_86",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2000,
+    "type": "income",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_87",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 3000,
+    "type": "income",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_88",
+    "name": "Credit One Bank Payment 260205 41499228 AULAK",
+    "amount": 20.12,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_89",
+    "name": "Comcast",
+    "amount": 385.23,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Cable",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_90",
+    "name": "Comcast",
+    "amount": 283.14,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Cable",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_91",
+    "name": "Lucky Spa Asian Massage",
+    "amount": 60,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Personal Care",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_92",
+    "name": "The Meritage",
+    "amount": 1091.06,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Car Parts and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_93",
+    "name": "Starbucks",
+    "amount": 19.32,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Coffee Shop",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_94",
+    "name": "Lucky Spa Asian Massage",
+    "amount": 80,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Personal Care",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_95",
+    "name": "ADT",
+    "amount": 66.74,
+    "type": "expense",
+    "date": "2026-03-08T18:29:50.000Z",
+    "category": "Security and Safety",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_96",
+    "name": "Dept Education Student Ln",
+    "amount": 132.52,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_97",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 200,
+    "type": "income",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_98",
+    "name": "ZELLE FROM PREET SUKH LLC ON 03/06 REF # WFCT",
+    "amount": 38,
+    "type": "income",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_99",
+    "name": "MOBILE DEPOSIT : REF NUMBER :813060746695",
+    "amount": 702.26,
+    "type": "income",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_100",
+    "name": "MOBILE DEPOSIT : REF NUMBER :810060399005",
+    "amount": 100,
+    "type": "income",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_101",
+    "name": "ZELLE TO SUKHPREET SINGH ON 03/06 REF # WFCT0",
+    "amount": 1000,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_102",
+    "name": "ZELLE FROM PREET SUKH LLC ON 03/06 REF # WFCT",
+    "amount": 38,
+    "type": "income",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_103",
+    "name": "Ross Stores",
+    "amount": 237.05,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_104",
+    "name": "Refuel Petroleu",
+    "amount": 72.49,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Gas Stations",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_105",
+    "name": "Staples",
+    "amount": 61.12,
+    "type": "expense",
+    "date": "2026-03-05T18:29:50.000Z",
+    "category": "Office Supplies",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_106",
+    "name": "California DMV",
+    "amount": 0.59,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Government Departments and Agencies",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_107",
+    "name": "ONLINE TRANSFER FROM KAUR I WAY2SAVE SAVINGS ",
+    "amount": 815,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_108",
+    "name": "Dept Education",
+    "amount": 132.52,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_109",
+    "name": "California DMV",
+    "amount": 28,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Government Departments and Agencies",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_110",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 800,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_111",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 2400,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_112",
+    "name": "Macy's",
+    "amount": 30.51,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_113",
+    "name": "ZELLE FROM GURSHARANJIT SINGH ON 03/05 REF # ",
+    "amount": 255,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_114",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26030521231",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_115",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26030514567",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_116",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS CHE",
+    "amount": 300,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_117",
+    "name": "MOBILE DEPOSIT : REF NUMBER :915050414107",
+    "amount": 4000,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_118",
+    "name": "WT FED#02R01 BANK OF AMERICA, N /FTR/BNF=CHHO",
+    "amount": 5500,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_119",
+    "name": "WT 260305-145677 JPMORGAN CHASE BANK /BNF=DRI",
+    "amount": 9515.2,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_120",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2000,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_121",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 800,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_122",
+    "name": "MOBILE DEPOSIT : REF NUMBER :912050206089",
+    "amount": 3248.2,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_123",
+    "name": "MOBILE DEPOSIT : REF NUMBER :415050463997",
+    "amount": 1024,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_124",
+    "name": "Apple",
+    "amount": 13.99,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_125",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 300,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_126",
+    "name": "Remitly",
+    "amount": 257.02,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_127",
+    "name": "Raunak Bazar",
+    "amount": 22.66,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_128",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2000,
+    "type": "income",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_129",
+    "name": "JCPenney",
+    "amount": 63.62,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Department Stores",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_130",
+    "name": "BUSINESS TO BUSINESS ACH CAPITAL ONE CRCARDPM",
+    "amount": 79,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_131",
+    "name": "ATM WITHDRAWAL AUTHORIZED ON 03/05 160 N Main",
+    "amount": 800,
+    "type": "expense",
+    "date": "2026-03-04T18:29:50.000Z",
+    "category": "ATM",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_132",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 133,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_133",
+    "name": "WF PAYMENT MAR 04 29531957 AULAKH SHAHBAJ / K",
+    "amount": 237.84,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Payment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_134",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 120,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_135",
+    "name": "MOBILE DEPOSIT : REF NUMBER :717040353753",
+    "amount": 1185,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_136",
+    "name": "MOBILE DEPOSIT : REF NUMBER :015040985499",
+    "amount": 1014,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_137",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2000,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_138",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 500,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_139",
+    "name": "MOBILE DEPOSIT : REF NUMBER :817040355625",
+    "amount": 6930,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_140",
+    "name": "MOBILE DEPOSIT : REF NUMBER :817040354713",
+    "amount": 557,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_141",
+    "name": "MOBILE DEPOSIT : REF NUMBER :813040846499",
+    "amount": 2264,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_142",
+    "name": "MOBILE DEPOSIT : REF NUMBER :613040843891",
+    "amount": 1720,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_143",
+    "name": "Remitly",
+    "amount": 334.1,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_144",
+    "name": "Target",
+    "amount": 41.57,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_145",
+    "name": "Starbucks",
+    "amount": 5.75,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Coffee Shop",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_146",
+    "name": "Banana Republic",
+    "amount": 248.52,
+    "type": "expense",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_147",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2000,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_148",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 120,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_149",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 500,
+    "type": "income",
+    "date": "2026-03-03T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_150",
+    "name": "ZELLE FROM SOHNAA FOOD ON 03/03 REF # BACEX55",
+    "amount": 800,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_151",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 1000,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_152",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 200,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_153",
+    "name": "ZELLE FROM NEW INDIAN SUPERMARKET ON 03/03 RE",
+    "amount": 200,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_154",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 17,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (7275)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_155",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 500,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (7275)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_156",
+    "name": "ZELLE TO PRIME MOTOR ON 03/03 REF # WFCT0ZVVZ",
+    "amount": 163.2,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_157",
+    "name": "WT 260303-157078 JPMORGAN CHASE BANK /BNF=DRI",
+    "amount": 21000,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_158",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26030315707",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_159",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26030312312",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_160",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 1000,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_161",
+    "name": "ONLINE TRANSFER FROM AULAKH S EVERYDAY CHECKI",
+    "amount": 17,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_162",
+    "name": "ONLINE TRANSFER FROM AULAKH S EVERYDAY CHECKI",
+    "amount": 500,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_163",
+    "name": "MOBILE DEPOSIT : REF NUMBER :412030492297",
+    "amount": 775,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_164",
+    "name": "IMAGINE VISA PMT ePay 260228 IMAGINE VISA PM ",
+    "amount": 1000,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Payment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_165",
+    "name": "ZELLE TO KAUR MANDEEP ON 03/03 REF # WFCT0ZVV",
+    "amount": 500,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_166",
+    "name": "WT SEQ123124 PCC LOGISTICS /BNF=Pacific Coast",
+    "amount": 1935,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Shops",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_167",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 18,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_168",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 130,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_169",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS CHE",
+    "amount": 1500,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_170",
+    "name": "MOBILE DEPOSIT : REF NUMBER :320030266449",
+    "amount": 2129.7,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_171",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 1500,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_172",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 18,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_173",
+    "name": "Netflix",
+    "amount": 17.99,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Subscription",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_174",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 130,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_175",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 200,
+    "type": "income",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_176",
+    "name": "BUSINESS TO BUSINESS ACH MERCH BNKCD NSD DEPO",
+    "amount": 3.5,
+    "type": "expense",
+    "date": "2026-03-02T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_177",
+    "name": "ZELLE FROM PREET SUKH LLC ON 02/28 REF # WFCT",
+    "amount": 222,
+    "type": "income",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_178",
+    "name": "MOBILE DEPOSIT : REF NUMBER :810020624811",
+    "amount": 1779,
+    "type": "income",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_179",
+    "name": "MOBILE DEPOSIT : REF NUMBER :014020241445",
+    "amount": 1000,
+    "type": "income",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_180",
+    "name": "MOBILE DEPOSIT : REF NUMBER :514280798393",
+    "amount": 1009.44,
+    "type": "income",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_181",
+    "name": "ATM CASH DEPOSIT ON 03/02 160 N Main St Mante",
+    "amount": 100,
+    "type": "income",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "ATM",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_182",
+    "name": "ATM CASH DEPOSIT ON 03/02 160 N Main St Mante",
+    "amount": 3935,
+    "type": "income",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "ATM",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_183",
+    "name": "Starbucks",
+    "amount": 5.75,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Coffee Shop",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_184",
+    "name": "OpenAI",
+    "amount": 20,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Other",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_185",
+    "name": "OpenAI",
+    "amount": 18.63,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Other",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_186",
+    "name": "Apple",
+    "amount": 12.49,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_187",
+    "name": "Quickquack",
+    "amount": 46.99,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Service",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_188",
+    "name": "Lucky Spa Asian Massage",
+    "amount": 80,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Personal Care",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_189",
+    "name": "Habibi's International Market",
+    "amount": 78.62,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_190",
+    "name": "Chevron",
+    "amount": 54.9,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Gas Stations",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_191",
+    "name": "BUSINESS TO BUSINESS ACH CAPITAL ONE MOBILE P",
+    "amount": 79,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_192",
+    "name": "BUSINESS TO BUSINESS ACH CAPITAL ONE MOBILE P",
+    "amount": 1500,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_193",
+    "name": "BUSINESS TO BUSINESS ACH CAPITAL ONE MOBILE P",
+    "amount": 140,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_194",
+    "name": "Westlake Payme",
+    "amount": 257.84,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Payment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_195",
+    "name": "Quickquack",
+    "amount": 19.99,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_196",
+    "name": "Manteca Tire Wheel",
+    "amount": 180,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Auto Tires",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_197",
+    "name": "Star India",
+    "amount": 36.95,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_198",
+    "name": "Chevron",
+    "amount": 68.61,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Gas Stations",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_199",
+    "name": "BUSINESS TO BUSINESS ACH CAPITAL ONE MOBILE P",
+    "amount": 1500,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_200",
+    "name": "ADT",
+    "amount": 51.68,
+    "type": "expense",
+    "date": "2026-03-01T18:29:50.000Z",
+    "category": "Security and Safety",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_201",
+    "name": "Lucky Spa Asian Massage",
+    "amount": 60,
+    "type": "expense",
+    "date": "2026-02-28T18:29:50.000Z",
+    "category": "Personal Care",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_202",
+    "name": "ZELLE TO GET IT ON WHEELS IN ON 02/27 REF # W",
+    "amount": 400,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_203",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 3000,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_204",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 2000,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_205",
+    "name": "MOBILE DEPOSIT : REF NUMBER :611270955665",
+    "amount": 6095.9,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_206",
+    "name": "DEPOSITED ITEMS FEE",
+    "amount": 9,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Bank Fees",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_207",
+    "name": "OVERDRAFT PROTECTION XFER TO CHECKING",
+    "amount": 144.94,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_208",
+    "name": "Flagstar",
+    "amount": 3365.49,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_209",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26022726894",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_210",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 200,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_211",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 500,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_212",
+    "name": "Instant Pmt from RAUNAK BAZAR INC on 02/27 Re",
+    "amount": 4000,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Payroll",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_213",
+    "name": "INTEREST PAYMENT",
+    "amount": 0.05,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Interest Earned",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_214",
+    "name": "Retn",
+    "amount": 4000,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_215",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 3000,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_216",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 200,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_217",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 500,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_218",
+    "name": "Microsoft",
+    "amount": 129.99,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Computers and Electronics",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_219",
+    "name": "Hapn",
+    "amount": 14.95,
+    "type": "expense",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Service",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_220",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 2000,
+    "type": "income",
+    "date": "2026-02-26T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_221",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 20500,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (7275)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_222",
+    "name": "ZELLE TO SINGH LAKHVIR ON 02/26 REF # WFCT0ZV",
+    "amount": 570,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_223",
+    "name": "ZELLE TO KIRAN NEW NO ON 02/26 REF # WFCT0ZV8",
+    "amount": 1500,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Loans and Mortgages",
+    "lenderFlag": true,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_224",
+    "name": "OVERDRAFT PROTECTION XFER TO CHECKING",
+    "amount": 1491.17,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_225",
+    "name": "WT FED#02R02 JPMORGAN CHASE BAN /FTR/BNF=DRIP",
+    "amount": 23307.94,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_226",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26022622897",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_227",
+    "name": "ONLINE TRANSFER FROM AULAKH S EVERYDAY CHECKI",
+    "amount": 20500,
+    "type": "income",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_228",
+    "name": "MOBILE DEPOSIT : REF NUMBER :810260550487",
+    "amount": 1231,
+    "type": "income",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_229",
+    "name": "Habibi's International Market",
+    "amount": 18.52,
+    "type": "expense",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_230",
+    "name": "OVERDRAFT PROTECTION XFER FROM DEP ACT",
+    "amount": 144.94,
+    "type": "income",
+    "date": "2026-02-25T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_231",
+    "name": "ZELLE TO SHAMSHER SINGH ON 02/25 REF # WFCT0Z",
+    "amount": 1373,
+    "type": "expense",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_232",
+    "name": "MOBILE DEPOSIT : REF NUMBER :718250909339",
+    "amount": 1212,
+    "type": "income",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_233",
+    "name": "eDeposit in Branch 02/25/26 04:48:03 PM 160 N",
+    "amount": 4000,
+    "type": "income",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_234",
+    "name": "ZELLE FROM SUMANDEEP SINGH ON 02/25 REF # BAC",
+    "amount": 2000,
+    "type": "income",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_235",
+    "name": "ZELLE FROM SINGH ROBINPAL ON 02/25 REF # WFCT",
+    "amount": 3500,
+    "type": "income",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_236",
+    "name": "Dutch Bros. Coffee",
+    "amount": 11.8,
+    "type": "expense",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Coffee Shop",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_237",
+    "name": "OVERDRAFT PROTECTION XFER FROM DEP ACT",
+    "amount": 1491.17,
+    "type": "income",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_238",
+    "name": "Aspire",
+    "amount": 458.09,
+    "type": "expense",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Arts and Entertainment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_239",
+    "name": "Wetzel's Pretzels",
+    "amount": 1.38,
+    "type": "expense",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_240",
+    "name": "BUSINESS TO BUSINESS ACH ALLY ALLY PAYMT 2602",
+    "amount": 1053.98,
+    "type": "expense",
+    "date": "2026-02-24T18:29:50.000Z",
+    "category": "Payment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_241",
+    "name": "Calvin Klein",
+    "amount": 235.77,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_242",
+    "name": "PURCHASE Calvin Klein Livermore CA CARD4977",
+    "amount": 235.77,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_243",
+    "name": "Adidas",
+    "amount": 373.73,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_244",
+    "name": "Fossil Outlet Store 7480 Livermore Ca",
+    "amount": 190.73,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_245",
+    "name": "PURCHASE AUTHORIZED ON 02/23 COACH 3828 LIVER",
+    "amount": 473.27,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_246",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 200,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_247",
+    "name": "J. Crew Factory",
+    "amount": 98.64,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_248",
+    "name": "ZELLE FROM NEW INDIAN SUPERMARKET ON 02/24 RE",
+    "amount": 21000,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_249",
+    "name": "Tory Burch",
+    "amount": 748.7,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Women's Store",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_250",
+    "name": "ONLINE TRANSFER TO AULAKH S EVERYDAY CHECKING",
+    "amount": 21000,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_251",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 21000,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (7275)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_252",
+    "name": "WIRE TRANS SVC CHARGE - SEQUENCE: 26022411354",
+    "amount": 25,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Wire Transfer",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_253",
+    "name": "Toyota",
+    "amount": 966.52,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Car Dealers and Leasing",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_254",
+    "name": "MOBILE DEPOSIT : REF NUMBER :616240677421",
+    "amount": 2129,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_255",
+    "name": "WT 260224-113546 JPMORGAN CHASE BANK /BNF=DRI",
+    "amount": 20045,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Wire",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_256",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 200,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_257",
+    "name": "MOBILE DEPOSIT : REF NUMBER :516240676815",
+    "amount": 2598,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_258",
+    "name": "MOBILE DEPOSIT : REF NUMBER :516240675951",
+    "amount": 192,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_259",
+    "name": "MOBILE DEPOSIT : REF NUMBER :012240381321",
+    "amount": 7257,
+    "type": "income",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_260",
+    "name": "Habibi's International Market",
+    "amount": 18.52,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_261",
+    "name": "Starbucks",
+    "amount": 7.04,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Coffee Shop",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_262",
+    "name": "Sbarro",
+    "amount": 15.05,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_263",
+    "name": "Calvin Klein",
+    "amount": 235.77,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Clothing and Accessories",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_264",
+    "name": "Paradise Biryani Pointe",
+    "amount": 17.22,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_265",
+    "name": "Jamba Juice",
+    "amount": 14,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Food and Drink",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_266",
+    "name": "Verizon",
+    "amount": 134.97,
+    "type": "expense",
+    "date": "2026-02-23T18:29:50.000Z",
+    "category": "Telecommunication Services",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_267",
+    "name": "SKECHERS",
+    "amount": 49.6,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Shoe Store",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_268",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 1500,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_269",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 800,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_270",
+    "name": "ZELLE TO SUKHPREET SINGH ON 02/21 REF # WFCT0",
+    "amount": 1500,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_271",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 500,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_272",
+    "name": "MOBILE DEPOSIT : REF NUMBER :710230824627",
+    "amount": 1416,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_273",
+    "name": "MOBILE DEPOSIT : REF NUMBER :610230823549",
+    "amount": 10000,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_274",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 200,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_275",
+    "name": "Lucky Spa Asian Massage",
+    "amount": 80,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Personal Care",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_276",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 500,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_277",
+    "name": "ONLINE TRANSFER FROM SOHNAA FOOD BUSINESS PLA",
+    "amount": 200,
+    "type": "income",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_278",
+    "name": "Lucky Spa Asian Massage",
+    "amount": 60,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Personal Care",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_279",
+    "name": "La Plaza Market",
+    "amount": 115.5,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_280",
+    "name": "BevMo!",
+    "amount": 109.02,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Food and Beverage Store",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_281",
+    "name": "Cinemark Theatres",
+    "amount": 16.49,
+    "type": "expense",
+    "date": "2026-02-22T18:29:50.000Z",
+    "category": "Arts and Entertainment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_282",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 900,
+    "type": "income",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_283",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS PLATI",
+    "amount": 966.52,
+    "type": "expense",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (2141)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_284",
+    "name": "ONLINE TRANSFER FROM KAUR I EVERYDAY CHECKING",
+    "amount": 966.52,
+    "type": "income",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_285",
+    "name": "MOBILE DEPOSIT : REF NUMBER :115200288299",
+    "amount": 1301.5,
+    "type": "income",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_286",
+    "name": "Toyota",
+    "amount": 966.52,
+    "type": "expense",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Car Dealers and Leasing",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_287",
+    "name": "MOBILE DEPOSIT : REF NUMBER :514200968203",
+    "amount": 3601.58,
+    "type": "income",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_288",
+    "name": "Pb Indian Supermar",
+    "amount": 19.36,
+    "type": "expense",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_289",
+    "name": "Apple",
+    "amount": 7.42,
+    "type": "expense",
+    "date": "2026-02-19T18:29:50.000Z",
+    "category": "Digital Purchase",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_290",
+    "name": "ZELLE TO HARBANS SINGH ON 02/19 REF # WFCT0ZT",
+    "amount": 100,
+    "type": "expense",
+    "date": "2026-02-18T18:29:50.000Z",
+    "category": "Gas Stations",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_291",
+    "name": "ZELLE FROM JRG TRANS INC ON 02/19 REF # WFCT0",
+    "amount": 284,
+    "type": "income",
+    "date": "2026-02-18T18:29:50.000Z",
+    "category": "Credit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_292",
+    "name": "MOBILE DEPOSIT : REF NUMBER :419190946689",
+    "amount": 1000,
+    "type": "income",
+    "date": "2026-02-18T18:29:50.000Z",
+    "category": "Deposit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_293",
+    "name": "ZELLE FROM DESI PIZZA MODESTO INC ON 02/19 RE",
+    "amount": 54,
+    "type": "income",
+    "date": "2026-02-18T18:29:50.000Z",
+    "category": "Restaurants",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_294",
+    "name": "IMAGINE VISA PMT ePay 260218 IMAGINE VISA PM ",
+    "amount": 500,
+    "type": "expense",
+    "date": "2026-02-18T18:29:50.000Z",
+    "category": "Payment",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_295",
+    "name": "ONLINE TRANSFER TO SOHNAA FOOD BUSINESS CHECK",
+    "amount": 200,
+    "type": "expense",
+    "date": "2026-02-17T18:29:50.000Z",
+    "category": "Debit",
+    "lenderFlag": false,
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_296",
+    "name": "MOBILE DEPOSIT : REF NUMBER :320180824661",
+    "amount": 1979,
     "type": "income",
     "date": "2026-02-17T18:29:50.000Z",
-    "category": "Internal Account Transfer",
+    "category": "Deposit",
     "lenderFlag": false,
-    "account": "BUS COMPLETE CHK",
+    "account": "Wells Fargo (8391)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_297",
+    "name": "Starbucks",
+    "amount": 5.75,
+    "type": "expense",
+    "date": "2026-02-17T18:29:50.000Z",
+    "category": "Coffee Shop",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_298",
+    "name": "Credit One Bank Payment 260124 50736663 SHAHB",
+    "amount": 104.95,
+    "type": "expense",
+    "date": "2026-02-17T18:29:50.000Z",
+    "category": "Credit Card",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
+    "variance": "normal"
+  },
+  {
+    "id": "txn_299",
+    "name": "Manteca Foods",
+    "amount": 7.04,
+    "type": "expense",
+    "date": "2026-02-17T18:29:50.000Z",
+    "category": "Supermarkets and Groceries",
+    "lenderFlag": false,
+    "account": "Wells Fargo (9271)",
     "variance": "normal"
   }
 ];
 
-const NEW_LENDERS = [];
+const NEW_LENDERS = ["ZELLE TO KIRAN NEW NO ON 03/11…","Dept Education Student Ln","ZELLE TO SUKHPREET SINGH ON 03…","Dept Education","ZELLE TO KAUR MANDEEP ON 03/03…","ZELLE TO KIRAN NEW NO ON 02/26…"];
+
+const PLATFORM_PCT = 0;
+const PLATFORM_NAMES = [];
 
 const LENDER_KEYWORDS = [
   // MCA / Revenue-Based Financing
@@ -1001,10 +3349,21 @@ const LENDER_KEYWORDS = [
   "behalf","divvy","brex","bill.com capital","pipe","novel capital",
   // Common MCA descriptor fragments
   "en od capital","enod","mca funding","merchant advance","cash advance",
-  "revenue advance","business advance","working capital advance"
+  "revenue advance","business advance","working capital advance",
+  // Real-world lenders found in client data
+  "parafin capital","kalamatacapital","kalamata capital",
+  "ny comm unsecured loan","new york commercial bank","nycb",
+  "dime bank","dime community bank",
+  "cathay bank loan","cathay bank",
+  "sba eidl","sba loan",
+  "pnc lending","pnc loan",
+  "citizens bank comm loans","northfield bank loan",
+  "unsecured loan","comm loans","loan payment to"
 ];
 
 const SWING_THRESHOLD = 10;
+const ACCOUNTS = ["Wells Fargo (9271)","Wells Fargo (8391)","Wells Fargo (2141)","Wells Fargo (7275)"];
+const TXN_LIMIT = 200;
 
 function WatchFace({ size=38, animate=true }) {
   const [, setTick] = useState(0);
@@ -1067,8 +3426,61 @@ const BarChart = ({ data }) => {
 
 const fmt=(n)=>n>=1000000?`$${(n/1000000).toFixed(2)}M`:n>=1000?`$${(n/1000).toFixed(1)}k`:`$${Math.abs(n).toFixed(0)}`;
 
+function LenderTags({ names, newLenders }) {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? names : names.slice(0, 3);
+  const extra = names.length - 3;
+  return (
+    <div style={{marginTop:"4px",display:"flex",flexWrap:"wrap",gap:"3px",alignItems:"center"}}>
+      {visible.map(n=>(
+        <span key={n} style={{fontSize:"8px",background:newLenders.includes(n)?"rgba(255,60,60,0.1)":"rgba(10,22,40,0.05)",color:newLenders.includes(n)?"#ff5050":"rgba(10,22,40,0.4)",padding:"1px 5px",borderRadius:"3px",fontFamily:"'DM Mono',monospace",border:newLenders.includes(n)?"1px solid rgba(255,60,60,0.2)":"1px solid transparent"}}>
+          {newLenders.includes(n)?"⚠ ":""}{n.length>22?n.slice(0,22)+"…":n}
+        </span>
+      ))}
+      {extra>0&&!expanded&&(
+        <span onClick={()=>setExpanded(true)} style={{fontSize:"8px",color:"rgba(27,79,216,0.5)",fontFamily:"'DM Mono',monospace",cursor:"pointer",textDecoration:"underline",padding:"1px 4px"}}>+{extra} more</span>
+      )}
+      {expanded&&extra>0&&(
+        <span onClick={()=>setExpanded(false)} style={{fontSize:"8px",color:"rgba(27,79,216,0.5)",fontFamily:"'DM Mono',monospace",cursor:"pointer",textDecoration:"underline",padding:"1px 4px"}}>show less</span>
+      )}
+    </div>
+  );
+}
+
+function RiskGauge({ score }) {
+  const clamp = Math.max(0, Math.min(100, score));
+  const color = clamp <= 40 ? '#22c55e' : clamp <= 70 ? '#f59e0b' : '#ef4444';
+  const label = clamp <= 40 ? 'LOW RISK' : clamp <= 70 ? 'ELEVATED' : 'HIGH RISK';
+  const bgColor = clamp <= 40 ? 'rgba(34,197,94,0.08)' : clamp <= 70 ? 'rgba(245,158,11,0.08)' : 'rgba(239,68,68,0.08)';
+  // Gauge arc: 180 degrees, from left to right
+  const r = 38, cx = 50, cy = 52;
+  const startAngle = -180, endAngle = 0;
+  const toRad = d => d * Math.PI / 180;
+  const arcX = (deg) => cx + r * Math.cos(toRad(deg));
+  const arcY = (deg) => cy + r * Math.sin(toRad(deg));
+  const needleDeg = -180 + (clamp / 100) * 180;
+  const nx = cx + (r - 8) * Math.cos(toRad(needleDeg));
+  const ny = cy + (r - 8) * Math.sin(toRad(needleDeg));
+  const trackD = `M ${arcX(-180)} ${arcY(-180)} A ${r} ${r} 0 0 1 ${arcX(0)} ${arcY(0)}`;
+  const fillAngle = -180 + (clamp / 100) * 180;
+  const fillD = `M ${arcX(-180)} ${arcY(-180)} A ${r} ${r} 0 0 1 ${arcX(fillAngle)} ${arcY(fillAngle)}`;
+  return (
+    <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",height:"100%"}}>
+      <svg width="100" height="58" viewBox="0 0 100 58">
+        <path d={trackD} fill="none" stroke="rgba(10,22,40,0.08)" strokeWidth="7" strokeLinecap="round"/>
+        <path d={fillD} fill="none" stroke={color} strokeWidth="7" strokeLinecap="round" style={{filter:`drop-shadow(0 0 4px ${color}80)`}}/>
+        <line x1={cx} y1={cy} x2={nx} y2={ny} stroke={color} strokeWidth="2.5" strokeLinecap="round"/>
+        <circle cx={cx} cy={cy} r="3.5" fill={color}/>
+        <text x={cx} y={cy-14} textAnchor="middle" fill={color} fontSize="16" fontWeight="800" fontFamily="Syne,sans-serif">{clamp}</text>
+      </svg>
+      <div style={{fontSize:"8px",fontFamily:"'DM Mono',monospace",letterSpacing:"1.5px",color,marginTop:"-4px"}}>{label}</div>
+    </div>
+  );
+}
+
 export default function DripPlaidWatch() {
   const [activeFilter,setActiveFilter]=useState("all");
+  const [activeAccount,setActiveAccount]=useState("all");
   const [alertsAck,setAlertsAck]=useState([]);
   const [selectedTxn,setSelectedTxn]=useState(null);
   const [time,setTime]=useState(new Date());
@@ -1081,22 +3493,84 @@ export default function DripPlaidWatch() {
   const netCashflow=totalRevenue-totalExpenses;
   const lenderExposure=lenderTxns.filter(t=>t.type==="expense").reduce((s,t)=>s+t.amount,0);
 
-  // Use only full months for comparisons — exclude partial current month if flagged
+  // Use only full months for MoM comparisons
   const fullMonths=MONTHLY.filter(m=>!m.partial);
   const currMonth=fullMonths[fullMonths.length-1];
   const prevMonth=fullMonths[fullMonths.length-2];
   const revSwing=prevMonth&&currMonth?((currMonth.revenue-prevMonth.revenue)/prevMonth.revenue*100).toFixed(1):0;
   const expSwing=prevMonth&&currMonth?((currMonth.expenses-prevMonth.expenses)/prevMonth.expenses*100).toFixed(1):0;
 
-  // KPI values default to last full month
+  // KPI cards: revenue/expenses/net = last FULL month only
   const kpiRevenue=currMonth?currMonth.revenue:totalRevenue;
   const kpiExpenses=currMonth?currMonth.expenses:totalExpenses;
   const kpiNet=currMonth?currMonth.net:netCashflow;
-  const kpiLenderExposure=currMonth?currMonth.lenderPayments:lenderExposure;
   const kpiLabel=currMonth?currMonth.month:"Current Period";
-  const partialMonth=MONTHLY.find(m=>m.partial);
 
-  const filtered=TRANSACTIONS.filter(t=>{ if(activeFilter==="income")return t.type==="income"; if(activeFilter==="expense")return t.type==="expense"; if(activeFilter==="lender")return t.lenderFlag; return true; });
+  // Lender exposure: combine last full month + partial month (so March MCA payments still show)
+  const partialMonth=MONTHLY.find(m=>m.partial);
+  const kpiLenderExposure=(currMonth?currMonth.lenderPayments:0)+(partialMonth?partialMonth.lenderPayments:0);
+  const lenderKpiLabel=partialMonth?`${kpiLabel} + ${partialMonth.month}`:kpiLabel;
+
+  // ── MCA Stacking Detection ────────────────────────────────────────────────
+  const stackingByMonth = MONTHLY.map(m => ({
+    month: m.month,
+    count: m.lenderNames ? m.lenderNames.length : 0,
+    names: m.lenderNames || [],
+    partial: m.partial
+  }));
+  const maxStack = Math.max(...stackingByMonth.map(m => m.count), 0);
+  const stackColor = maxStack >= 5 ? '#ef4444' : maxStack >= 3 ? '#f59e0b' : maxStack >= 2 ? '#fb923c' : '#22c55e';
+  const stackLabel = maxStack >= 5 ? 'CRITICAL' : maxStack >= 3 ? 'WARNING' : maxStack >= 2 ? 'CAUTION' : 'CLEAR';
+
+  // ── Drip Risk Score ───────────────────────────────────────────────────────
+  // 1. MCA Stacking (25%) — based on max simultaneous lenders
+  const stackScore = Math.min(100, maxStack <= 1 ? 0 : maxStack === 2 ? 30 : maxStack === 3 ? 55 : maxStack === 4 ? 78 : 100);
+
+  // 2. Revenue Trend (20%) — slope of last 3 full months
+  const revMonths = fullMonths.slice(-3).map(m => m.revenue);
+  const revTrend = revMonths.length >= 2 ? (revMonths[revMonths.length-1] - revMonths[0]) / (revMonths[0] || 1) : 0;
+  const revScore = revTrend >= 0.1 ? 0 : revTrend >= 0 ? 15 : revTrend >= -0.1 ? 35 : revTrend >= -0.25 ? 60 : 100;
+
+  // 3. Expense/Revenue Ratio (15%) — trending toward or above 1.0
+  const expRatios = fullMonths.slice(-3).map(m => m.revenue > 0 ? m.expenses / m.revenue : 1);
+  const avgRatio = expRatios.length ? expRatios.reduce((a,b)=>a+b,0)/expRatios.length : 1;
+  const ratioScore = avgRatio <= 0.7 ? 0 : avgRatio <= 0.85 ? 20 : avgRatio <= 0.95 ? 45 : avgRatio <= 1.05 ? 70 : 100;
+
+  // 4. Net Cashflow (10%) — consecutive deficit months
+  const deficitMonths = fullMonths.filter(m => m.net < 0).length;
+  const cashScore = deficitMonths === 0 ? 0 : deficitMonths === 1 ? 25 : deficitMonths === 2 ? 55 : 100;
+
+  // 5. New Lenders (10%) — new MCAs appearing recently
+  const newLenderScore = NEW_LENDERS.length === 0 ? 0 : NEW_LENDERS.length === 1 ? 40 : NEW_LENDERS.length === 2 ? 70 : 100;
+
+  // 6. Platform Concentration (20%) — % revenue from Amazon/Shopify etc
+  const platformScore = PLATFORM_PCT <= 20 ? 0 : PLATFORM_PCT <= 40 ? 20 : PLATFORM_PCT <= 60 ? 45 : PLATFORM_PCT <= 80 ? 70 : 100;
+
+  const riskScore = Math.round(
+    stackScore * 0.25 +
+    revScore * 0.20 +
+    ratioScore * 0.15 +
+    cashScore * 0.10 +
+    newLenderScore * 0.10 +
+    platformScore * 0.20
+  );
+
+  const riskSignals = [
+    { label: 'MCA Stacking', score: stackScore, weight: '25%', detail: `${maxStack} simultaneous lender${maxStack!==1?'s':''}` },
+    { label: 'Revenue Trend', score: revScore, weight: '20%', detail: `${revTrend>=0?'+':''}${(revTrend*100).toFixed(0)}% over 3mo` },
+    { label: 'Expense Ratio', score: ratioScore, weight: '15%', detail: `${(avgRatio*100).toFixed(0)}¢ expenses per $1 revenue` },
+    { label: 'Net Cashflow', score: cashScore, weight: '10%', detail: `${deficitMonths} deficit month${deficitMonths!==1?'s':''}` },
+    { label: 'New Lenders', score: newLenderScore, weight: '10%', detail: `${NEW_LENDERS.length} new in 60 days` },
+    { label: 'Platform Risk', score: platformScore, weight: '20%', detail: `${PLATFORM_PCT}% platform revenue` },
+  ];
+
+  const filtered=TRANSACTIONS.filter(t=>{
+    if(activeAccount!=="all"&&t.account!==activeAccount) return false;
+    if(activeFilter==="income")return t.type==="income";
+    if(activeFilter==="expense")return t.type==="expense";
+    if(activeFilter==="lender")return t.lenderFlag;
+    return true;
+  }).slice(0,TXN_LIMIT);
   const timeStr=time.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
   const dateStr=time.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
 
@@ -1122,7 +3596,7 @@ export default function DripPlaidWatch() {
               <span style={{fontFamily:"'Syne',sans-serif",fontSize:"22px",fontWeight:800,background:"linear-gradient(90deg,#4B9FFF,#1B4FD8)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",letterSpacing:"-0.5px"}}>PlaidWatch</span>
             </div>
             <div style={{fontSize:"10px",color:"rgba(27,79,216,0.6)",fontFamily:"'DM Mono',monospace",letterSpacing:"1.5px",marginTop:"1px"}}>TRADE FINANCE · CASH FLOW MONITOR</div>
-            <div style={{fontSize:"13px",fontWeight:600,color:"#0A1628",marginTop:"4px",letterSpacing:"-0.2px"}}>GBS Supplies March 16</div>
+            <div style={{fontSize:"13px",fontWeight:600,color:"#0A1628",marginTop:"4px",letterSpacing:"-0.2px"}}>Sohnaa Foods   March</div>
           </div>
         </div>
         <div style={{textAlign:"center"}}>
@@ -1149,12 +3623,12 @@ export default function DripPlaidWatch() {
         )}
       </div>
 
-      <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"12px",marginBottom:"16px"}}>
+      <div style={{display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:"12px",marginBottom:"16px"}}>
         {[
-          {label:"Revenue",value:fmt(kpiRevenue),sub:`${revSwing>0?"▲":"▼"} ${Math.abs(revSwing)}% vs prior month`,subColor:revSwing>0?"#4B9FFF":"#ff6b6b",spark:MONTHLY.filter(m=>!m.partial).map(m=>m.revenue),sparkColor:"#4B9FFF",accent:"#4B9FFF",border:"rgba(75,159,255,0.2)"},
-          {label:"Expenses",value:fmt(kpiExpenses),sub:`${expSwing>0?"▲":"▼"} ${Math.abs(expSwing)}% vs prior month`,subColor:expSwing>0?"#ff6b6b":"#4B9FFF",spark:MONTHLY.filter(m=>!m.partial).map(m=>m.expenses),sparkColor:"#ff6b6b",accent:"#ff6b6b",border:"rgba(255,107,107,0.2)"},
-          {label:"Net Cashflow",value:`${kpiNet>=0?"+":""}${fmt(Math.abs(kpiNet))}`,sub:kpiNet>=0?"Positive position":"Deficit — review",subColor:kpiNet>=0?"#4B9FFF":"#ff6b6b",spark:MONTHLY.filter(m=>!m.partial).map(m=>Math.abs(m.net)+1),sparkColor:"#7B5FFF",accent:"#7B5FFF",border:"rgba(123,95,255,0.2)"},
-          {label:"Lender Exposure",value:fmt(kpiLenderExposure),sub:`${lenderTxns.length} lender payments flagged`,subColor:"#ffaa44",spark:MONTHLY.filter(m=>!m.partial).map(m=>m.lenderPayments+1),sparkColor:"#ffaa44",accent:"#ffaa44",border:unackedAlerts.length>0?"rgba(255,170,50,0.4)":"rgba(255,170,50,0.15)"},
+          {label:"Revenue",value:fmt(kpiRevenue),sub:`${revSwing>0?"▲":"▼"} ${Math.abs(revSwing)}% vs prior month`,subColor:revSwing>0?"#4B9FFF":"#ff6b6b",spark:MONTHLY.filter(m=>!m.partial).map(m=>m.revenue),sparkColor:"#4B9FFF",accent:"#4B9FFF",border:"rgba(75,159,255,0.2)",periodLabel:kpiLabel},
+          {label:"Expenses",value:fmt(kpiExpenses),sub:`${expSwing>0?"▲":"▼"} ${Math.abs(expSwing)}% vs prior month`,subColor:expSwing>0?"#ff6b6b":"#4B9FFF",spark:MONTHLY.filter(m=>!m.partial).map(m=>m.expenses),sparkColor:"#ff6b6b",accent:"#ff6b6b",border:"rgba(255,107,107,0.2)",periodLabel:kpiLabel},
+          {label:"Net Cashflow",value:`${kpiNet>=0?"+":""}${fmt(Math.abs(kpiNet))}`,sub:kpiNet>=0?"Positive position":"Deficit — review",subColor:kpiNet>=0?"#4B9FFF":"#ff6b6b",spark:MONTHLY.filter(m=>!m.partial).map(m=>Math.abs(m.net)+1),sparkColor:"#7B5FFF",accent:"#7B5FFF",border:"rgba(123,95,255,0.2)",periodLabel:kpiLabel},
+          {label:"Lender Exposure",value:fmt(kpiLenderExposure),sub:`${lenderTxns.length} lender payments flagged`,subColor:"#ffaa44",spark:MONTHLY.map(m=>m.lenderPayments+1),sparkColor:"#ffaa44",accent:"#ffaa44",border:unackedAlerts.length>0?"rgba(255,170,50,0.4)":"rgba(255,170,50,0.15)",periodLabel:lenderKpiLabel},
         ].map((card,i)=>(
           <div key={i} style={{background:"#ffffff",border:`1px solid ${card.border}`,borderRadius:"12px",padding:"16px 18px",position:"relative",overflow:"hidden"}}>
             <div style={{position:"absolute",top:0,right:0,width:"70px",height:"70px",background:`radial-gradient(circle at 100% 0%,${card.accent}20,transparent 70%)`}}/>
@@ -1162,10 +3636,69 @@ export default function DripPlaidWatch() {
             <div style={{fontSize:"10px",color:"rgba(27,79,216,0.6)",fontFamily:"'DM Mono',monospace",letterSpacing:"0.8px",marginBottom:"7px",textTransform:"uppercase"}}>{card.label}</div>
             <div style={{fontSize:"24px",fontFamily:"'Syne',sans-serif",fontWeight:800,color:card.accent,marginBottom:"3px",letterSpacing:"-0.5px"}}>{card.value}</div>
             <div style={{fontSize:"11px",color:card.subColor,marginBottom:"6px"}}>{card.sub}</div>
-            <div style={{fontSize:"9px",color:"rgba(27,79,216,0.35)",fontFamily:"'DM Mono',monospace",marginBottom:"6px"}}>{kpiLabel}</div>
+            <div style={{fontSize:"9px",color:"rgba(27,79,216,0.35)",fontFamily:"'DM Mono',monospace",marginBottom:"6px"}}>{card.periodLabel}</div>
             <Sparkline data={card.spark} color={card.sparkColor} width={100} height={32}/>
           </div>
         ))}
+
+        {/* ── Drip Risk Score Card ── */}
+        <div style={{background:"#ffffff",border:`1px solid ${riskScore<=40?"rgba(34,197,94,0.2)":riskScore<=70?"rgba(245,158,11,0.25)":"rgba(239,68,68,0.3)"}`,borderRadius:"12px",padding:"14px 16px",position:"relative",overflow:"hidden"}}>
+          <div style={{position:"absolute",top:0,right:0,width:"70px",height:"70px",background:riskScore<=40?"radial-gradient(circle at 100% 0%,rgba(34,197,94,0.12),transparent 70%)":riskScore<=70?"radial-gradient(circle at 100% 0%,rgba(245,158,11,0.12),transparent 70%)":"radial-gradient(circle at 100% 0%,rgba(239,68,68,0.12),transparent 70%)"}}/>
+          <div style={{fontSize:"10px",color:"rgba(27,79,216,0.6)",fontFamily:"'DM Mono',monospace",letterSpacing:"0.8px",marginBottom:"4px",textTransform:"uppercase"}}>Drip Risk Score</div>
+          <RiskGauge score={riskScore}/>
+          <div style={{marginTop:"8px",display:"flex",flexDirection:"column",gap:"3px"}}>
+            {riskSignals.map((s,i)=>(
+              <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <span style={{fontSize:"8px",color:"rgba(10,22,40,0.45)",fontFamily:"'DM Mono',monospace"}}>{s.label}</span>
+                <div style={{display:"flex",alignItems:"center",gap:"4px"}}>
+                  <div style={{width:"36px",height:"3px",background:"rgba(10,22,40,0.06)",borderRadius:"2px",overflow:"hidden"}}>
+                    <div style={{height:"100%",width:`${s.score}%`,background:s.score<=40?"#22c55e":s.score<=70?"#f59e0b":"#ef4444",borderRadius:"2px"}}/>
+                  </div>
+                  <span style={{fontSize:"7px",color:"rgba(10,22,40,0.3)",fontFamily:"'DM Mono',monospace",width:"18px",textAlign:"right"}}>{s.weight}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── MCA Stacking Alert Panel ── */}
+      <div style={{background:"#ffffff",border:`1px solid ${stackColor}30`,borderRadius:"12px",padding:"14px 18px",marginBottom:"14px"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"10px"}}>
+          <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+            <span style={{fontSize:"12px"}}>🔗</span>
+            <span style={{fontSize:"10px",fontFamily:"'DM Mono',monospace",letterSpacing:"1px",color:"rgba(10,22,40,0.5)"}}>MCA STACKING MONITOR</span>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:"6px"}}>
+            <div style={{width:"7px",height:"7px",borderRadius:"50%",background:stackColor}}/>
+            <span style={{fontSize:"9px",fontFamily:"'DM Mono',monospace",color:stackColor,letterSpacing:"1px"}}>{stackLabel}</span>
+          </div>
+        </div>
+        <div style={{display:"flex",gap:"6px",overflowX:"auto"}}>
+          {stackingByMonth.map((m,i)=>{
+            const c = m.count>=5?"#ef4444":m.count>=3?"#f59e0b":m.count>=2?"#fb923c":"#22c55e";
+            return (
+              <div key={i} style={{flex:"0 0 auto",minWidth:"80px",background:m.count>=2?`${c}10`:"rgba(10,22,40,0.02)",border:`1px solid ${m.count>=2?c+"30":"rgba(10,22,40,0.06)"}`,borderRadius:"8px",padding:"8px",textAlign:"center"}}>
+                <div style={{fontSize:"8px",color:"rgba(10,22,40,0.4)",fontFamily:"'DM Mono',monospace",marginBottom:"4px"}}>{m.month}{m.partial?" *":""}</div>
+                <div style={{fontSize:"22px",fontFamily:"'Syne',sans-serif",fontWeight:800,color:c,lineHeight:1}}>{m.count}</div>
+                <div style={{fontSize:"7px",color:c,fontFamily:"'DM Mono',monospace",marginTop:"2px",marginBottom:"5px"}}>lender{m.count!==1?"s":""}</div>
+                {m.names.slice(0,2).map(n=>(
+                  <div key={n} style={{fontSize:"7px",color:"rgba(10,22,40,0.4)",fontFamily:"'DM Mono',monospace",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:"76px"}}>{n}</div>
+                ))}
+                {m.names.length>2&&<div style={{fontSize:"7px",color:c,fontFamily:"'DM Mono',monospace"}}>+{m.names.length-2} more</div>}
+              </div>
+            );
+          })}
+        </div>
+        {PLATFORM_PCT>0&&(
+          <div style={{marginTop:"10px",paddingTop:"10px",borderTop:"1px solid rgba(10,22,40,0.06)",display:"flex",alignItems:"center",gap:"10px",flexWrap:"wrap"}}>
+            <span style={{fontSize:"9px",fontFamily:"'DM Mono',monospace",color:"rgba(10,22,40,0.4)",letterSpacing:"1px"}}>PLATFORM CONCENTRATION:</span>
+            <span style={{fontSize:"9px",fontFamily:"'DM Mono',monospace",color:PLATFORM_PCT>=60?"#ef4444":PLATFORM_PCT>=40?"#f59e0b":"#22c55e",fontWeight:600}}>{PLATFORM_PCT}% via marketplace</span>
+            {PLATFORM_NAMES.slice(0,3).map(n=>(
+              <span key={n} style={{fontSize:"8px",background:"rgba(27,79,216,0.05)",color:"rgba(27,79,216,0.5)",padding:"1px 6px",borderRadius:"3px",fontFamily:"'DM Mono',monospace"}}>{n}</span>
+            ))}
+          </div>
+        )}
       </div>
 
       {partialMonth&&(
@@ -1220,12 +3753,23 @@ export default function DripPlaidWatch() {
               <span style={{fontSize:"13px",fontWeight:600}}>Transaction Feed</span>
               <span style={{fontSize:"10px",color:"rgba(75,159,255,0.35)",fontFamily:"'DM Mono',monospace"}}>{filtered.length} RECORDS</span>
             </div>
-            <div style={{display:"flex",gap:"5px"}}>
-              {["all","income","expense","lender"].map(f=>(
-                <button key={f} className="filter-btn" onClick={()=>setActiveFilter(f)} style={{padding:"3px 10px",borderRadius:"5px",fontSize:"10px",fontFamily:"'DM Mono',monospace",background:activeFilter===f?(f==="lender"?"#ff5050":"#1B4FD8"):"rgba(27,79,216,0.07)",color:activeFilter===f?"#fff":"rgba(27,79,216,0.6)",border:activeFilter===f?"none":"1px solid rgba(27,79,216,0.18)",fontWeight:activeFilter===f?600:400}}>
-                  {f==="lender"?"⚠ LENDERS":f.toUpperCase()}
-                </button>
-              ))}
+            <div style={{display:"flex",flexDirection:"column",gap:"5px",alignItems:"flex-end"}}>
+              {ACCOUNTS.length>1&&(
+                <div style={{display:"flex",gap:"4px",flexWrap:"wrap",justifyContent:"flex-end"}}>
+                  {["all",...ACCOUNTS].map(a=>(
+                    <button key={a} className="filter-btn" onClick={()=>setActiveAccount(a)} style={{padding:"2px 8px",borderRadius:"4px",fontSize:"9px",fontFamily:"'DM Mono',monospace",background:activeAccount===a?"#0A1628":"rgba(10,22,40,0.04)",color:activeAccount===a?"#fff":"rgba(10,22,40,0.45)",border:activeAccount===a?"none":"1px solid rgba(10,22,40,0.12)",fontWeight:activeAccount===a?600:400}}>
+                      {a==="all"?"ALL ACCOUNTS":a.length>18?a.slice(0,18)+"…":a}
+                    </button>
+                  ))}
+                </div>
+              )}
+              <div style={{display:"flex",gap:"5px"}}>
+                {["all","income","expense","lender"].map(f=>(
+                  <button key={f} className="filter-btn" onClick={()=>setActiveFilter(f)} style={{padding:"3px 10px",borderRadius:"5px",fontSize:"10px",fontFamily:"'DM Mono',monospace",background:activeFilter===f?(f==="lender"?"#ff5050":"#1B4FD8"):"rgba(27,79,216,0.07)",color:activeFilter===f?"#fff":"rgba(27,79,216,0.6)",border:activeFilter===f?"none":"1px solid rgba(27,79,216,0.18)",fontWeight:activeFilter===f?600:400}}>
+                    {f==="lender"?"⚠ LENDERS":f.toUpperCase()}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           <div style={{maxHeight:"400px",overflowY:"auto"}}>
@@ -1242,7 +3786,7 @@ export default function DripPlaidWatch() {
                       {txn.name}
                       {txn.lenderFlag&&!alertsAck.includes(txn.id)&&<span style={{fontSize:"8px",background:"#ff5050",color:"#fff",padding:"1px 5px",borderRadius:"3px",fontFamily:"'DM Mono',monospace"}}>LENDER</span>}
                     </div>
-                    <div style={{fontSize:"10px",color:"rgba(75,159,255,0.35)",fontFamily:"'DM Mono',monospace",marginTop:"1px"}}>{txn.category} · {txn.date}</div>
+                    <div style={{fontSize:"10px",color:"rgba(75,159,255,0.35)",fontFamily:"'DM Mono',monospace",marginTop:"1px"}}>{txn.category} · {txn.date}{txn.account&&ACCOUNTS.length>1?<span style={{marginLeft:"6px",background:"rgba(10,22,40,0.05)",border:"1px solid rgba(10,22,40,0.08)",borderRadius:"3px",padding:"0px 5px",fontSize:"8px",color:"rgba(10,22,40,0.4)"}}>{txn.account.length>16?txn.account.slice(0,16)+"…":txn.account}</span>:""}</div>
                   </div>
                 </div>
                 <div style={{textAlign:"right",flexShrink:0}}>
@@ -1310,14 +3854,7 @@ export default function DripPlaidWatch() {
                       </div>
                     )}
                     {m.lenderNames&&m.lenderNames.length>0&&(
-                      <div style={{marginTop:"4px",display:"flex",flexWrap:"wrap",gap:"3px"}}>
-                        {m.lenderNames.slice(0,3).map(n=>(
-                          <span key={n} style={{fontSize:"8px",background:NEW_LENDERS.includes(n)?"rgba(255,60,60,0.1)":"rgba(10,22,40,0.05)",color:NEW_LENDERS.includes(n)?"#ff5050":"rgba(10,22,40,0.4)",padding:"1px 5px",borderRadius:"3px",fontFamily:"'DM Mono',monospace",border:NEW_LENDERS.includes(n)?"1px solid rgba(255,60,60,0.2)":"1px solid transparent"}}>
-                            {NEW_LENDERS.includes(n)?"⚠ ":""}{n.length>22?n.slice(0,22)+"…":n}
-                          </span>
-                        ))}
-                        {m.lenderNames.length>3&&<span style={{fontSize:"8px",color:"rgba(10,22,40,0.3)",fontFamily:"'DM Mono',monospace"}}>+{m.lenderNames.length-3} more</span>}
-                      </div>
+                      <LenderTags names={m.lenderNames} newLenders={NEW_LENDERS}/>
                     )}
                   </div>
                 );
@@ -1368,7 +3905,8 @@ export default function DripPlaidWatch() {
           <div style={{fontSize:"10px",color:"rgba(214,48,48,0.45)",fontFamily:"'DM Mono',monospace",letterSpacing:"0.8px",marginBottom:"3px"}}>TOP PAYMENTS OUT</div>
           <div style={{fontSize:"13px",fontWeight:600,marginBottom:"12px"}}>Largest Expense Recipients</div>
           {(()=>{
-            const topOut=Object.entries(TRANSACTIONS.filter(t=>t.type==="expense"&&!t.lenderFlag).reduce((acc,t)=>{const k=t.name.length>28?t.name.slice(0,28)+"…":t.name;acc[k]=(acc[k]||0)+t.amount;return acc;},{})).sort((a,b)=>b[1]-a[1]).slice(0,5);
+            const NON_BUSINESS = /^checks*#/i;
+            const topOut=Object.entries(TRANSACTIONS.filter(t=>t.type==="expense"&&!t.lenderFlag&&!NON_BUSINESS.test(t.name)&&t.category!=="ATM"&&t.category!=="Withdrawal"&&t.category!=="Check"&&t.category!=="Internal Account Transfer").reduce((acc,t)=>{const k=t.name.length>28?t.name.slice(0,28)+"…":t.name;acc[k]=(acc[k]||0)+t.amount;return acc;},{})).sort((a,b)=>b[1]-a[1]).slice(0,5);
             const maxAmt=topOut[0]?topOut[0][1]:1;
             return topOut.length===0?(
               <div style={{color:"rgba(10,22,40,0.35)",fontSize:"12px"}}>No expense transactions found</div>
@@ -1400,7 +3938,7 @@ export default function DripPlaidWatch() {
       <div style={{marginTop:"16px",display:"flex",justifyContent:"space-between",alignItems:"center",paddingTop:"12px",borderTop:"1px solid rgba(27,79,216,0.1)"}}>
         <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
           <WatchFace size={16} animate={true}/>
-          <span style={{fontSize:"10px",color:"rgba(75,159,255,0.2)",fontFamily:"'DM Mono',monospace"}}>DRIP'S PLAIDWATCH · GBS Supplies March 16 · {TRANSACTIONS.length} TRANSACTIONS</span>
+          <span style={{fontSize:"10px",color:"rgba(75,159,255,0.2)",fontFamily:"'DM Mono',monospace"}}>DRIP'S PLAIDWATCH · Sohnaa Foods   March · {TRANSACTIONS.length} TRANSACTIONS</span>
         </div>
         <div style={{display:"flex",gap:"5px",alignItems:"center"}}>
           <div style={{width:"4px",height:"4px",borderRadius:"50%",background:"#4B9FFF",animation:"alertBlink 2.5s infinite"}}/>
